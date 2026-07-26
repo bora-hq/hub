@@ -33,6 +33,8 @@ Foco: **produtos reais**, **agentes autônomos** e **infra própria** — nada d
 
 ## 🤖 Bots em Produção
 
+> **Esta seção é a FONTE CANÔNICA dos bots vivos do ecossistema. Edite aqui.**
+
 | Bot | Plataforma | Modelo | Onde roda | Função |
 |-----|------------|--------|-----------|--------|
 | **Dona** | Web (FastAPI) | OpenRouter | VPS (Docker) | Agente introspectivo / Takeout Insights |
