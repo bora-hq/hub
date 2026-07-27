@@ -81,6 +81,24 @@ Foco: **produtos reais**, **agentes autônomos** e **infra própria** — nada d
 
 ---
 
+## 💡 Banco de Ideias
+
+> **Decisão (26/07):** o hub **não é** o sistema de captura. É o **índice** que aponta pra onde as ideias vivem e como navegar nelas.
+
+| O quê | Onde | Como acessar |
+|-------|------|-------------|
+| **Captura** (`!btw`) | Flow (`~/Documentos/bora-hq/flow/`) | Telegram: `!btw <texto>` |
+| **Organização** (tags, links, grafo) | Flow + flow-viz | `flow nota tag\|link\|ideias` |
+| **Visualização** | flow-viz (`:8000`) | `http://localhost:8000/ideias` (fase 2) |
+| **Surfacing temporal** | Cron 9h | Telegram (automático) |
+
+**Status:** MVP pessoal em construção (schema + CLI + cron).  
+**Revisão virar produto:** 16/08/2026 — critérios: uso 5+ dias/semana, 1 insight via surfacing, alguém externo pediu.
+
+> Spec completa: task `t_8a0011d5` (plano em `.hermes/plans/2026-07-26-app-banco-ideias.md`)
+
+---
+
 ## 🚀 Começando
 
 ```bash
