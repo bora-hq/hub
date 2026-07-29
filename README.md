@@ -49,7 +49,7 @@ Foco: **produtos reais**, **agentes autônomos** e **infra própria** — nada d
 
 | Componente | Onde | Detalhes |
 |------------|------|----------|
-| **VPS** | Hostinger | `root@2.25.158.212` — Docker, systemd, Nginx, PostgreSQL |
+| **VPS** | Hostinger | acesso via chave SSH (contato: Lucas) — Docker, systemd, Nginx, PostgreSQL |
 | **Dona** | Container `dona-dona-1` | FastAPI + systemd, exposto via Nginx + SSL |
 | **OpenClaw Bots** | Containers individuais | Pairing via QR code, sessões persistidas |
 | **Hermes Agent** | Local (Lucas) | Agente principal — `~/.hermes`, modelo DeepSeek via OpenRouter |
@@ -146,5 +146,5 @@ Projetos individuais podem ter licenças próprias (ver cada repo).
 
 - **Telegram**: @my_hermez_dev_bot (Hermes)
 - **GitHub**: @antunes-hq (pessoal) / @bora-hq (org)
-- **VPS**: `ssh root@2.25.158.212`
+- **VPS**: acesso via chave SSH (contato: Lucas)
 - **Timezone**: America/Sao_Paulo (BRT)
