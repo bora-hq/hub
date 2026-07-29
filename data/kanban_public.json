@@ -1,0 +1,742 @@
+[
+  {
+    "id": "t_6bd67872",
+    "title": "Processar docs de locação (contrato, vistoria, laudo, reparo)",
+    "status": "blocked",
+    "tenant": "aptdata",
+    "assignee": "default",
+    "priority": 0,
+    "created_at": 1784740365,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_a5835acd",
+    "title": "Decide on repository name for bora distribution",
+    "status": "blocked",
+    "tenant": "bora-dist",
+    "assignee": "bora",
+    "priority": 0,
+    "created_at": 1785047484,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_72e6eac9",
+    "title": "Investigate sync flow→viz implementation",
+    "status": "blocked",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 0,
+    "created_at": 1785047497,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_4b793d8c",
+    "title": "Evaluate bridge CLI/HTTP for viz",
+    "status": "blocked",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 0,
+    "created_at": 1785047497,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_6eac1cfb",
+    "title": "FE4 — armadilha do eco: rename Flow ANTES de criar o eco da Dona",
+    "status": "blocked",
+    "tenant": "infra",
+    "assignee": "coder",
+    "priority": 0,
+    "created_at": 1785258509,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_7dfad256",
+    "title": "Mapear bots VPS (Serginho, Formiga, Dona)",
+    "status": "blocked",
+    "tenant": "bots",
+    "assignee": "default",
+    "priority": 1,
+    "created_at": 1784769678,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_6f973bf0",
+    "title": "Lockin: governança por repo (fail-closed)",
+    "status": "blocked",
+    "tenant": "infra",
+    "assignee": "default",
+    "priority": 1,
+    "created_at": 1785041362,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_a2e1ac59",
+    "title": "F0.2 Zeca → loopback only",
+    "status": "blocked",
+    "tenant": "infra",
+    "assignee": "coder",
+    "priority": 1,
+    "created_at": 1785209769,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_e36266e0",
+    "title": "F0.1 — ufw default-deny na VPS + rebind painéis p/ loopback [MANUAL]",
+    "status": "blocked",
+    "tenant": "infra",
+    "assignee": "none",
+    "priority": 1,
+    "created_at": 1785209806,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_b885eb2c",
+    "title": "T — 5 suítes de teste (nascem vermelhas)",
+    "status": "blocked",
+    "tenant": "testes",
+    "assignee": "coder",
+    "priority": 2,
+    "created_at": 1785209770,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_9e7b42e2",
+    "title": "FE2 — HERMES_WORKSPACE + reescrever 19 sítios dinâmicos",
+    "status": "blocked",
+    "tenant": "infra",
+    "assignee": "coder",
+    "priority": 2,
+    "created_at": 1785211684,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_85c43330",
+    "title": "FE3b — mv strategy p/ antunes-hq (pasta comum, sem git)",
+    "status": "blocked",
+    "tenant": "infra",
+    "assignee": "coder",
+    "priority": 2,
+    "created_at": 1785211685,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_ffb75a6e",
+    "title": "FF1 — catalogo.json + catalogo.py (mapa repo↔pasta↔frente↔perfil↔nível)",
+    "status": "blocked",
+    "tenant": "infra",
+    "assignee": "coder",
+    "priority": 2,
+    "created_at": 1785211686,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_51bd17d1",
+    "title": "FF2 — bora-hq/.github: ruff.toml + padrao.yml + profile/README",
+    "status": "blocked",
+    "tenant": "infra",
+    "assignee": "coder",
+    "priority": 2,
+    "created_at": 1785211687,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_ebe70793",
+    "title": "FF3 — flow adota padrao.yml + descrição/tópicos nos 10 repos",
+    "status": "blocked",
+    "tenant": "infra",
+    "assignee": "coder",
+    "priority": 2,
+    "created_at": 1785211688,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_c6243a65",
+    "title": "F6 — bora-hq/infra: compose por serviço + README mapa porta→serviço",
+    "status": "blocked",
+    "tenant": "infra",
+    "assignee": "bora",
+    "priority": 2,
+    "created_at": 1785211689,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_0688c207",
+    "title": "Flow-viz do comportamento (saúde TDAH)",
+    "status": "blocked",
+    "tenant": "apps",
+    "assignee": "default",
+    "priority": 3,
+    "created_at": 1785041373,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_06b7d5dc",
+    "title": "bora-hq colaborativo — landing + convites",
+    "status": "blocked",
+    "tenant": "apps",
+    "assignee": "default",
+    "priority": 3,
+    "created_at": 1785041373,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_bfe193d0",
+    "title": "F0.3 [LUCAS-DECIDE] — restringir faixa 1025-65535 da zona FedoraWorkstation?",
+    "status": "blocked",
+    "tenant": "infra",
+    "assignee": "default",
+    "priority": 3,
+    "created_at": 1785211023,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_a5939160",
+    "title": "Dona: cron de iniciativa rara — domingo 18h, verifica se tem algo pra dizer",
+    "status": "done",
+    "tenant": "dona",
+    "assignee": "default",
+    "priority": 0,
+    "created_at": 1784689352,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_08816737",
+    "title": "Explore auto-write in flow via parse",
+    "status": "done",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 0,
+    "created_at": 1785047497,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_638ab68f",
+    "title": "C2 — corrigir lab/quadro.py: layout dos 6 kanban.db",
+    "status": "done",
+    "tenant": "testes",
+    "assignee": "coder",
+    "priority": 0,
+    "created_at": 1785260174,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_4019b65b",
+    "title": "C3 — caminhos.py: journal() e bancada() apontam pro vazio",
+    "status": "done",
+    "tenant": "testes",
+    "assignee": "coder",
+    "priority": 0,
+    "created_at": 1785260668,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_be172d39",
+    "title": "T1 — test_identidade.py (nasce vermelha, 4 falhas medidas)",
+    "status": "done",
+    "tenant": "testes",
+    "assignee": "coder",
+    "priority": 0,
+    "created_at": 1785260866,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_b47af6ae",
+    "title": "T2 — test_segredos.py (1 guarda verde + 5 falhas)",
+    "status": "done",
+    "tenant": "testes",
+    "assignee": "coder",
+    "priority": 0,
+    "created_at": 1785262716,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_747076d6",
+    "title": "T2b — test_segredos.py acusa demais (2 falsos positivos)",
+    "status": "done",
+    "tenant": "testes",
+    "assignee": "coder",
+    "priority": 0,
+    "created_at": 1785263476,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_ca8a9c19",
+    "title": "T3 — test_exposicao.py (nasce vermelha, 3 asserts)",
+    "status": "done",
+    "tenant": "testes",
+    "assignee": "coder",
+    "priority": 0,
+    "created_at": 1785263970,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_560bf75b",
+    "title": "T4b — test_quadro.py (classificador ja pronto no corpo)",
+    "status": "done",
+    "tenant": "testes",
+    "assignee": "coder",
+    "priority": 0,
+    "created_at": 1785265205,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_4ce7d22f",
+    "title": "T4c — test_quadro.py: tirar numero fixo (3 linhas)",
+    "status": "done",
+    "tenant": "testes",
+    "assignee": "coder",
+    "priority": 0,
+    "created_at": 1785265718,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_c4d17315",
+    "title": "T5 — test_caminhos.py (consome hermes_referencias)",
+    "status": "done",
+    "tenant": "testes",
+    "assignee": "coder",
+    "priority": 0,
+    "created_at": 1785265991,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_0d1e3da9",
+    "title": "FE5b — identidade git: user.email + 2 remotes consertaveis",
+    "status": "done",
+    "tenant": "infra",
+    "assignee": "coder",
+    "priority": 0,
+    "created_at": 1785268267,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_b6b4643f",
+    "title": "FS1 — criar os 5 .env.example que faltam",
+    "status": "done",
+    "tenant": "infra",
+    "assignee": "coder",
+    "priority": 0,
+    "created_at": 1785278401,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_28dcd918",
+    "title": "App do Trabalhador Autônomo — produto oficial",
+    "status": "done",
+    "tenant": "apps",
+    "assignee": "default",
+    "priority": 1,
+    "created_at": 1784740367,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_79bd1d86",
+    "title": "flow: uv init + pyproject.toml (deps: pydantic, click, aiosqlite)",
+    "status": "done",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 1,
+    "created_at": 1784938983,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_6e0cead5",
+    "title": "flow: Evento5W2H — schema Pydantic v2 + Custo + Status + lifecycle",
+    "status": "done",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 1,
+    "created_at": 1784938988,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_16d26433",
+    "title": "Hermes Voice / Desktop — Blueprint & Build",
+    "status": "done",
+    "tenant": "voice-desktop",
+    "assignee": "default",
+    "priority": 1,
+    "created_at": 1785114181,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_ef0a0df2",
+    "title": "F0.4 chmod 600 nos .env",
+    "status": "done",
+    "tenant": "infra",
+    "assignee": "coder",
+    "priority": 1,
+    "created_at": 1785209769,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_a4f0c376",
+    "title": "flow: Registry SQLite async (< 10ms) + Query",
+    "status": "done",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1784938990,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_43ec8f00",
+    "title": "flow: Tradutor — interface + 3 providers (Hermes, ClaudeCode, Direto)",
+    "status": "done",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1784938991,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_b1fa0f4e",
+    "title": "flow: Jornada interface + templates Nota e Task",
+    "status": "done",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1784938993,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_53af14d4",
+    "title": "flow: __init__.py exports + API fluente (nova.nota().porque().registrar())",
+    "status": "done",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1784938995,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_2635c0a6",
+    "title": "flow: CLI Click (jornada, list, show, --json)",
+    "status": "done",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1784938996,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_2350fb94",
+    "title": "flow: Tests — evento, tradutor, registry, jornadas",
+    "status": "done",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1784938998,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_29532b87",
+    "title": "flow-viz: Bootstrap do lab em ui-labs (copiar estrutura copa-ui)",
+    "status": "done",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1784939002,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_150fa58d",
+    "title": "flow-viz: tokens.css — herdar paleta Copa UI + tokens do flow",
+    "status": "done",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1784939004,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_3e5814a0",
+    "title": "flow-viz: Componentes novos — .c-chip, .c-voice, .c-timeline, .c-composer",
+    "status": "done",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1784939006,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_ba64f461",
+    "title": "flow-viz: templates/organizador.html — tela unica 3 modos + painel abertura",
+    "status": "done",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1784939007,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_12b81e55",
+    "title": "flow-viz: JS — api.js (CLI bridge), voice.js, chips.js, main.js",
+    "status": "done",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1784939009,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_3fd569a1",
+    "title": "Design: Settings Modal (voz TTS, Whisper, mic test)",
+    "status": "done",
+    "tenant": "voice-desktop",
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785114187,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_ff408e24",
+    "title": "Design: Session History Sidebar (busca, retomar, excluir)",
+    "status": "done",
+    "tenant": "voice-desktop",
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785114192,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_8c699407",
+    "title": "Design: Onboarding First-Run (4 passos: mic, voz, teste, pronto)",
+    "status": "done",
+    "tenant": "voice-desktop",
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785114200,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_07001cac",
+    "title": "Doc: Blueprint do Usuário (personas, JTBD, gaps, ICE) — plans/2026-07-26_192000-hermes-voice-user-blueprint.md",
+    "status": "done",
+    "tenant": "apps",
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785114269,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_0fc8b004",
+    "title": "C — lab/caminhos.py + lab/quadro.py",
+    "status": "done",
+    "tenant": "testes",
+    "assignee": "coder",
+    "priority": 2,
+    "created_at": 1785209771,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_7f11559a",
+    "title": "Mindflow — backlog ativo do app",
+    "status": "done",
+    "tenant": "apps",
+    "assignee": "default",
+    "priority": 3,
+    "created_at": 1784673710,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_21df049a",
+    "title": "flow: Testar ciclo completo — texto/opcoes/voz -> tradutor -> evento -> registry -> flow-viz",
+    "status": "done",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 3,
+    "created_at": 1784939014,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_bfff63bc",
+    "title": "flow: Evento com pronto vazio e rejeitado",
+    "status": "done",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 3,
+    "created_at": 1784939017,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_8aca538c",
+    "title": "flow: Commit final + push para bora-hq/eco",
+    "status": "done",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 3,
+    "created_at": 1784939019,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_be25196b",
+    "title": "flow: Atualizar experimentos.json — stage prototipo",
+    "status": "done",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 3,
+    "created_at": 1784939021,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_1c5b7250",
+    "title": "Varredura de segurança (host local + VPS)",
+    "status": "done",
+    "tenant": "infra",
+    "assignee": "default",
+    "priority": 3,
+    "created_at": 1785041364,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_6a7ab070",
+    "title": "RFT: Settings Modal — spec técnico (persistência, bridge API, Tauri store)",
+    "status": "done",
+    "tenant": "voice-desktop",
+    "assignee": "default",
+    "priority": 3,
+    "created_at": 1785114205,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_8e92aa34",
+    "title": "RFT: Session History Sidebar — spec técnico (IndexedDB web, SQLite bridge, Tauri commands)",
+    "status": "done",
+    "tenant": "voice-desktop",
+    "assignee": "default",
+    "priority": 3,
+    "created_at": 1785114211,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_d9377031",
+    "title": "RFT: Onboarding First-Run — spec técnico (perm microfone, localStorage, edge-tts preview, faster-whisper test)",
+    "status": "done",
+    "tenant": "voice-desktop",
+    "assignee": "default",
+    "priority": 3,
+    "created_at": 1785114219,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_97dc60ea",
+    "title": "CI/CD: GitHub Actions build Tauri (Linux .deb, Windows .exe, macOS .dmg) + release automático",
+    "status": "done",
+    "tenant": "voice-desktop",
+    "assignee": "default",
+    "priority": 3,
+    "created_at": 1785114245,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_867a2093",
+    "title": "Build: Settings Modal integração (bridge /api/settings, Tauri store, web components)",
+    "status": "done",
+    "tenant": "voice-desktop",
+    "assignee": "default",
+    "priority": 4,
+    "created_at": 1785114229,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_c9cc3785",
+    "title": "Build: Session History Sidebar integração (bridge SQLite, IndexedDB, Tauri commands)",
+    "status": "done",
+    "tenant": "voice-desktop",
+    "assignee": "default",
+    "priority": 4,
+    "created_at": 1785114234,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_67c0c29b",
+    "title": "Build: Onboarding First-Run integração (perm mic, edge-tts preview, faster-whisper test, flag localStorage)",
+    "status": "done",
+    "tenant": "voice-desktop",
+    "assignee": "default",
+    "priority": 4,
+    "created_at": 1785114240,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_c175a8c1",
+    "title": "Skill Lab: hermes-voice-patterns skill (Tauri v2 + Python bridge + faster-whisper + edge-tts patterns)",
+    "status": "done",
+    "tenant": "apps",
+    "assignee": "default",
+    "priority": 5,
+    "created_at": 1785114252,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_9b1b4225",
+    "title": "Skill Lab: skill-authoring workflow (hermes-agent-skill-authoring + templates + validation)",
+    "status": "done",
+    "tenant": "apps",
+    "assignee": "default",
+    "priority": 5,
+    "created_at": 1785114261,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_0c081016",
+    "title": "Flow: exportar JSON Schema do evento + invariant.yml",
+    "status": "ready",
+    "tenant": "flow",
+    "assignee": null,
+    "priority": 2,
+    "created_at": 1785290517,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_c1a23dc6",
+    "title": "Dona VPS: fix health check (/root/.hermes path no container)",
+    "status": "scheduled",
+    "tenant": "dona",
+    "assignee": "default",
+    "priority": 1,
+    "created_at": 1784735153,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_e5fd396a",
+    "title": "Takeout Insights (Dona) — VPS deploy + hardening",
+    "status": "scheduled",
+    "tenant": "dona",
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1784673710,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_13ac5bec",
+    "title": "flow: Trocar provider (FLOW_TRADUTOR=claude) sem quebrar",
+    "status": "scheduled",
+    "tenant": "flow",
+    "assignee": "default",
+    "priority": 3,
+    "created_at": 1784939016,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_14f76214",
+    "title": "Pendências bora distribution (4 itens — flow #258)",
+    "status": "todo",
+    "tenant": "bora-dist",
+    "assignee": "default",
+    "priority": 0,
+    "created_at": 1785047413,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_63b23198",
+    "title": "Ideia: adapter flow↔viz (INDEFINIDO — flow #260)",
+    "status": "todo",
+    "tenant": "bora-dist",
+    "assignee": "default",
+    "priority": 0,
+    "created_at": 1785047415,
+    "board": "ecossistema"
+  }
+]
