@@ -21,6 +21,7 @@ Foco: **produtos reais**, **agentes autônomos** e **infra própria** — nada d
 | **lab** | `bora-hq/lab` | Monorepo de kits e experimentos de IA (AI Labs) | 🟡 Pausado |
 | **visu** | `bora-hq/visu` | Lab de UI/UX, componentes e design system | 🟡 Exploração |
 | **fessora** | `bora-hq/fessora` | Sistema de aulas de inglês (Mariana) | 🟡 Em desenvolvimento |
+| **hermes-desktop** | `bora-hq/hermes-desktop` | Cliente desktop (web + Tauri) pro Hermes Agent | 🟡 Em desenvolvimento |
 | **mavi** | `antunes-hq/mavi` | Bot do casamento Mari & Vini (OpenClaw) | 🟢 Produção (Local) |
 | **dash** | `antunes-hq/dash` | Painel pessoal do Lucas | 🟡 Em desenvolvimento |
 | **feed** | `antunes-hq/feed` | Pipeline de conteúdo redes sociais | 🟡 Em desenvolvimento |
