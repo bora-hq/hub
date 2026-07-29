@@ -3,87 +3,230 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>bora-hq — hub</title>
+<title>bora-hq — console</title>
+<meta name="description" content="Console do ecossistema bora-hq: frota de projetos, bots em produção e board operacional.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; }
   :root {
-    --bg: #0e1116; --surface: #161b23; --surface-2: #1d242f;
-    --text: #e8eaed; --muted: #8b93a1;
-    --accent: #7ee0b8; --accent-2: #e0b97e; --danger: #e07e8b;
-    --radius: 14px; --space: 14px;
-    --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --bg: #0a0d12;
+    --panel: #12161d;
+    --panel-2: #171c24;
+    --edge: #232a35;
+    --edge-soft: #1a2029;
+    --ink: #e7e4d9;
+    --ink-dim: #8a92a0;
+    --ink-faint: #4f5865;
+    --amber: #e8a13a;
+    --amber-dim: #6b5730;
+    --teal: #57b8ab;
+    --teal-dim: #315650;
+    --rose: #dd6b6f;
+    --rose-dim: #5c3436;
+    --radius: 6px;
+    --font-display: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+    --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
+
+  html { color-scheme: dark; }
+
   body {
-    background: var(--bg); color: var(--text); font-family: var(--font);
-    font-size: 15px; line-height: 1.5; padding-bottom: 40px;
+    background: var(--bg); color: var(--ink); font-family: var(--font-body);
+    font-size: 15px; line-height: 1.55; padding-bottom: 56px;
+    background-image: radial-gradient(ellipse 900px 500px at 50% -10%, rgba(232, 161, 58, 0.06), transparent 60%);
   }
-  main { max-width: 860px; margin: 0 auto; padding: 0 var(--space); }
-  header { padding: 2.2rem var(--space) 1.2rem; text-align: center; }
-  header h1 { font-size: 1.6rem; font-weight: 650; }
-  header p { color: var(--muted); font-size: .92rem; margin-top: 6px; max-width: 46ch; margin-inline: auto; }
-  .card {
-    background: var(--surface); border-radius: var(--radius);
-    padding: var(--space); margin-bottom: var(--space);
-  }
-  .card h2 { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em;
-             color: var(--muted); margin-bottom: 10px; }
-  table { width: 100%; border-collapse: collapse; font-size: .88rem; }
-  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--surface-2); }
-  th { color: var(--muted); font-weight: 600; font-size: .75rem; text-transform: uppercase; }
-  td.status { white-space: nowrap; color: var(--muted); font-size: .82rem; }
-  a { color: var(--accent); text-decoration: none; }
+
+  main { max-width: 840px; margin: 0 auto; padding: 0 18px; }
+
+  a { color: var(--amber); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  .kb-summary { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
-  .kb-summary .n { background: var(--surface-2); border-radius: 999px; padding: 5px 12px; font-size: .8rem; }
-  .kb-summary .n b { color: var(--accent); }
-  .kb-group { margin-bottom: 18px; }
-  .kb-group:last-child { margin-bottom: 0; }
-  .kb-group h3 { font-size: .95rem; font-weight: 650; margin-bottom: 8px; text-transform: capitalize; }
-  .kb-task { display: flex; gap: 10px; align-items: baseline; padding: 7px 0;
-             border-bottom: 1px solid var(--surface-2); }
-  .kb-task:last-child { border-bottom: none; }
-  .kb-task .t { flex: 1; min-width: 0; }
-  .kb-task .badge {
-    flex: none; font-size: .7rem; text-transform: uppercase; letter-spacing: .04em;
-    background: var(--surface-2); color: var(--muted); border-radius: 999px; padding: 2px 9px;
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--amber); outline-offset: 2px; border-radius: 2px;
   }
-  .kb-task .badge.blocked { color: var(--danger); }
-  .kb-task .badge.ready, .kb-task .badge.todo { color: var(--accent-2); }
-  .kb-task .badge.done { color: var(--accent); }
-  .muted { color: var(--muted); font-size: .85rem; }
-  footer { text-align: center; color: var(--muted); font-size: .78rem; padding: 20px var(--space) 0; }
-  footer a { color: var(--muted); }
+
+  /* ---- header / deck ---- */
+  header.deck { max-width: 840px; margin: 0 auto; padding: 3rem 18px 1.6rem; }
+  .callsign { display: flex; align-items: baseline; gap: 10px; }
+  .callsign h1 {
+    font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
+    letter-spacing: -0.01em; color: var(--ink);
+  }
+  .dot-live {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--teal);
+    box-shadow: 0 0 0 3px var(--teal-dim);
+    flex: none; margin-bottom: 2px;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .dot-live { animation: pulse 2.4s ease-in-out infinite; }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .45; }
+  }
+
+  header.deck .sub {
+    color: var(--ink-dim); font-size: .92rem; margin-top: 6px; max-width: 52ch;
+  }
+
+  .ticker {
+    font-family: var(--font-display); font-size: .78rem; color: var(--ink-dim);
+    margin-top: 1.1rem; padding-top: .9rem; border-top: 1px solid var(--edge-soft);
+    letter-spacing: .01em; display: flex; flex-wrap: wrap; gap: 4px 0;
+  }
+  .ticker b { color: var(--amber); font-weight: 600; }
+  .ticker .sep { color: var(--ink-faint); margin: 0 8px; }
+
+  /* ---- panels ---- */
+  section.panel {
+    background: var(--panel); border: 1px solid var(--edge); border-radius: var(--radius);
+    padding: 20px; margin-bottom: 16px;
+  }
+  section.panel h2 {
+    font-family: var(--font-display); font-size: .84rem; font-weight: 600;
+    letter-spacing: .04em; text-transform: uppercase; color: var(--ink);
+    display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px;
+  }
+  section.panel h2 .mark { color: var(--amber); font-weight: 700; }
+  section.panel h2 .qualifier {
+    text-transform: none; font-weight: 400; color: var(--ink-faint); letter-spacing: 0;
+    font-family: var(--font-body);
+  }
+  .panel-hint { color: var(--ink-faint); font-size: .82rem; margin: 4px 0 16px; }
+
+  /* ---- register (project / bot tables) ---- */
+  table.register { width: 100%; border-collapse: collapse; margin-top: 14px; }
+  table.register th {
+    text-align: left; font-family: var(--font-display); font-size: .68rem;
+    text-transform: uppercase; letter-spacing: .06em; color: var(--ink-faint);
+    font-weight: 500; padding: 0 10px 8px; border-bottom: 1px solid var(--edge);
+  }
+  table.register td {
+    padding: 10px 10px; border-bottom: 1px solid var(--edge-soft); font-size: .87rem;
+    vertical-align: baseline;
+  }
+  table.register tr:last-child td { border-bottom: none; }
+  table.register td.name { font-family: var(--font-display); font-weight: 600; white-space: nowrap; }
+  table.register td.desc { color: var(--ink-dim); }
+  table.register td.status { white-space: nowrap; font-family: var(--font-display); font-size: .78rem; }
+
+  .stat-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 7px; }
+  .stat-dot.on { background: var(--teal); }
+  .stat-dot.mid { background: var(--amber); }
+  .stat-dot.off { background: var(--ink-faint); }
+
+  /* ---- kanban / ops board ---- */
+  .kb-summary { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+  .kb-summary .n {
+    font-family: var(--font-display); background: var(--panel-2); border: 1px solid var(--edge);
+    border-radius: 999px; padding: 4px 11px; font-size: .76rem; color: var(--ink-dim);
+  }
+  .kb-summary .n b { color: var(--amber); font-weight: 600; }
+
+  .kb-group { margin-bottom: 20px; }
+  .kb-group:last-child { margin-bottom: 0; }
+  .kb-group h3 {
+    font-family: var(--font-display); font-size: .8rem; font-weight: 600;
+    color: var(--ink); margin-bottom: 6px; letter-spacing: .01em;
+  }
+  .kb-group h3::before { content: "/ "; color: var(--ink-faint); }
+
+  .kb-task {
+    display: flex; gap: 10px; align-items: baseline; padding: 7px 0 7px 10px;
+    border-left: 2px solid var(--edge); border-bottom: 1px solid var(--edge-soft);
+  }
+  .kb-task:last-child { border-bottom: none; }
+  .kb-task.s-blocked { border-left-color: var(--rose); }
+  .kb-task.s-ready, .kb-task.s-todo, .kb-task.s-scheduled, .kb-task.s-triage { border-left-color: var(--amber); }
+  .kb-task.s-running, .kb-task.s-review { border-left-color: var(--teal); }
+  .kb-task .t { flex: 1; min-width: 0; font-size: .87rem; }
+  .kb-task .badge {
+    flex: none; font-family: var(--font-display); font-size: .68rem; text-transform: uppercase;
+    letter-spacing: .04em; color: var(--ink-faint); background: var(--panel-2);
+    border-radius: 4px; padding: 2px 8px;
+  }
+  .badge.blocked { color: var(--rose); }
+  .badge.ready, .badge.todo, .badge.scheduled, .badge.triage { color: var(--amber); }
+  .badge.running, .badge.review { color: var(--teal); }
+
+  details.kb-done { margin-top: 18px; }
+  details.kb-done summary {
+    cursor: pointer; font-family: var(--font-display); font-size: .78rem; color: var(--ink-dim);
+    list-style: none; padding: 8px 0; border-top: 1px solid var(--edge-soft);
+  }
+  details.kb-done summary::-webkit-details-marker { display: none; }
+  details.kb-done summary::before { content: "▸ "; color: var(--amber); }
+  details.kb-done[open] summary::before { content: "▾ "; }
+  details.kb-done .kb-group { margin-top: 14px; }
+  details.kb-done .kb-task { opacity: .62; }
+  details.kb-done .kb-task.s-done { border-left-color: var(--teal-dim); }
+
+  .muted { color: var(--ink-faint); font-size: .85rem; }
+
+  footer {
+    text-align: center; color: var(--ink-faint); font-size: .78rem;
+    padding: 28px 18px 0; font-family: var(--font-display);
+  }
+  footer a { color: var(--ink-dim); }
+
+  @media (max-width: 560px) {
+    table.register td.desc, table.register th.desc { display: none; }
+    .callsign h1 { font-size: 1.3rem; }
+  }
 </style>
 </head>
 <body>
-<header>
-  <h1>bora-hq</h1>
-  <p>Ecossistema de produtos, agentes e infra própria do Lucas Antunes. Ponto de entrada e descoberta — nada de teatro de assistente.</p>
+
+<header class="deck">
+  <div class="callsign">
+    <span class="dot-live" aria-hidden="true"></span>
+    <h1>bora-hq</h1>
+  </div>
+  <p class="sub">Console do ecossistema — produtos, agentes e infra própria do Lucas Antunes. Ponto de entrada e descoberta, não teatro de assistente.</p>
+  <div id="ticker" class="ticker">carregando telemetria…</div>
 </header>
 
 <main>
-  <div class="card">
-    <h2>Projetos</h2>
-    <table>
-      <thead><tr><th>Projeto</th><th>Descrição</th><th>Status</th></tr></thead>
+  <section class="panel">
+    <h2><span class="mark">▍</span>Frota — projetos</h2>
+    <table class="register">
+      <thead><tr><th>Projeto</th><th class="desc">Descrição</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td><a href="https://github.com/bora-hq/hub">hub</a></td><td>Este repo — porta de entrada e índice vivo do ecossistema</td><td class="status">Ativo</td></tr>
-        <tr><td><a href="https://github.com/bora-hq/aptdata">aptdata</a></td><td>Plataforma de dados para contabilidade (SaaS principal)</td><td class="status">Em estruturação</td></tr>
-        <tr><td><a href="https://github.com/bora-hq/eco">eco</a></td><td>Dona — agente introspectivo (Takeout Insights)</td><td class="status">Produção</td></tr>
-        <tr><td><a href="https://github.com/bora-hq/visu">visu</a></td><td>Lab de UI/UX, componentes e design system</td><td class="status">Exploração</td></tr>
-        <tr><td><a href="https://github.com/bora-hq/fessora">fessora</a></td><td>Sistema de aulas de inglês</td><td class="status">Em desenvolvimento</td></tr>
-        <tr><td><a href="https://github.com/bora-hq/hermes-desktop">hermes-desktop</a></td><td>Cliente desktop (web + Tauri) pro Hermes Agent</td><td class="status">Em desenvolvimento</td></tr>
-        <tr><td><a href="https://github.com/bora-hq/lab">lab</a></td><td>Monorepo de kits e experimentos de IA</td><td class="status">Pausado</td></tr>
+        <tr><td class="name"><a href="https://github.com/bora-hq/hub">hub</a></td><td class="desc">Este repo — porta de entrada e índice vivo do ecossistema</td><td class="status"><span class="stat-dot on"></span>Ativo</td></tr>
+        <tr><td class="name"><a href="https://github.com/bora-hq/aptdata">aptdata</a></td><td class="desc">Plataforma de dados para contabilidade (SaaS principal)</td><td class="status"><span class="stat-dot mid"></span>Em estruturação</td></tr>
+        <tr><td class="name"><a href="https://github.com/bora-hq/eco">eco</a></td><td class="desc">Dona — agente introspectivo (Takeout Insights)</td><td class="status"><span class="stat-dot on"></span>Produção</td></tr>
+        <tr><td class="name"><a href="https://github.com/bora-hq/visu">visu</a></td><td class="desc">Lab de UI/UX, componentes e design system</td><td class="status"><span class="stat-dot mid"></span>Exploração</td></tr>
+        <tr><td class="name"><a href="https://github.com/bora-hq/fessora">fessora</a></td><td class="desc">Sistema de aulas de inglês</td><td class="status"><span class="stat-dot mid"></span>Em desenvolvimento</td></tr>
+        <tr><td class="name"><a href="https://github.com/bora-hq/hermes-desktop">hermes-desktop</a></td><td class="desc">Cliente desktop (web + Tauri) pro Hermes Agent</td><td class="status"><span class="stat-dot mid"></span>Em desenvolvimento</td></tr>
+        <tr><td class="name"><a href="https://github.com/bora-hq/lab">lab</a></td><td class="desc">Monorepo de kits e experimentos de IA</td><td class="status"><span class="stat-dot off"></span>Pausado</td></tr>
       </tbody>
     </table>
-  </div>
+  </section>
 
-  <div class="card">
-    <h2>Kanban — board ecossistema</h2>
-    <p class="muted" style="margin-bottom:12px">Snapshot só-leitura, sincronizado a cada poucos minutos. Agrupado por produto/projeto.</p>
+  <section class="panel">
+    <h2><span class="mark">▍</span>Bots em produção</h2>
+    <table class="register">
+      <thead><tr><th>Bot</th><th class="desc">Onde roda</th><th>Função</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Dona</td><td class="desc">VPS · FastAPI + Docker</td><td class="status"><span class="stat-dot on"></span>Introspectivo</td></tr>
+        <tr><td class="name">Serginho</td><td class="desc">VPS · Telegram (OpenClaw)</td><td class="status"><span class="stat-dot on"></span>Chat casual</td></tr>
+        <tr><td class="name">Formiga</td><td class="desc">VPS · Telegram (OpenClaw)</td><td class="status"><span class="stat-dot on"></span>Facilitadora</td></tr>
+        <tr><td class="name">Casamento M&amp;V</td><td class="desc">Local · Docker</td><td class="status"><span class="stat-dot on"></span>Organização de evento</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="panel">
+    <h2><span class="mark">▍</span>Ops board <span class="qualifier">— kanban ecossistema</span></h2>
+    <p class="panel-hint">Snapshot só-leitura, sincronizado por <a href="https://github.com/bora-hq/kanban-sync">kanban-sync</a>. Mostrando o que está em movimento — concluídas ficam recolhidas abaixo.</p>
     <div id="kb-summary" class="kb-summary"></div>
     <div id="kb-root"></div>
-  </div>
+    <details class="kb-done" id="kb-done">
+      <summary id="kb-done-summary">concluídas</summary>
+      <div id="kb-done-root"></div>
+    </details>
+  </section>
 </main>
 
 <footer>
@@ -99,6 +242,30 @@ const el = (tag, cls, txt) => {
   return e;
 };
 const STATUS_ORDER = ["ready", "running", "review", "todo", "scheduled", "blocked", "triage", "done"];
+const N_PROJECTS = 7;
+const N_BOTS = 4;
+
+function renderGroups(tasks, root) {
+  root.innerHTML = "";
+  const byTenant = {};
+  tasks.forEach((t) => {
+    const k = t.tenant || "geral";
+    (byTenant[k] = byTenant[k] || []).push(t);
+  });
+  Object.keys(byTenant).sort().forEach((tenant) => {
+    const group = el("div", "kb-group");
+    group.append(el("h3", "", tenant));
+    byTenant[tenant]
+      .sort((a, b) => STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status) || a.priority - b.priority)
+      .forEach((t) => {
+        const row = el("div", "kb-task s-" + t.status);
+        row.append(el("span", "t", t.title));
+        row.append(el("span", "badge " + t.status, t.status));
+        group.append(row);
+      });
+    root.append(group);
+  });
+}
 
 async function load() {
   let tasks;
@@ -108,11 +275,15 @@ async function load() {
   } catch {
     $("#kb-root").innerHTML = "";
     $("#kb-root").append(el("div", "muted", "não consegui carregar o kanban agora."));
+    $("#ticker").textContent = `${N_PROJECTS} projetos · ${N_BOTS} bots ativos · telemetria do board indisponível`;
     return;
   }
 
+  const active = tasks.filter((t) => t.status !== "done");
+  const done = tasks.filter((t) => t.status === "done");
+
   const counts = {};
-  tasks.forEach((t) => { counts[t.status] = (counts[t.status] || 0) + 1; });
+  active.forEach((t) => { counts[t.status] = (counts[t.status] || 0) + 1; });
   const summary = $("#kb-summary");
   summary.innerHTML = "";
   STATUS_ORDER.filter((s) => counts[s]).forEach((s) => {
@@ -121,29 +292,20 @@ async function load() {
     summary.append(n);
   });
 
-  const byTenant = {};
-  tasks.forEach((t) => {
-    const k = t.tenant || "geral";
-    (byTenant[k] = byTenant[k] || []).push(t);
-  });
+  renderGroups(active, $("#kb-root"));
+  if (!active.length) $("#kb-root").append(el("div", "muted", "nada em movimento agora — board limpo."));
 
-  const root = $("#kb-root");
-  root.innerHTML = "";
-  Object.keys(byTenant).sort().forEach((tenant) => {
-    const group = el("div", "kb-group");
-    group.append(el("h3", "", tenant));
-    byTenant[tenant]
-      .sort((a, b) => STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status) || a.priority - b.priority)
-      .forEach((t) => {
-        const row = el("div", "kb-task");
-        row.append(el("span", "t", t.title));
-        row.append(el("span", "badge " + t.status, t.status));
-        group.append(row);
-      });
-    root.append(group);
-  });
+  renderGroups(done, $("#kb-done-root"));
+  $("#kb-done-summary").textContent = done.length
+    ? `${done.length} concluídas — expandir`
+    : "nenhuma task concluída ainda";
+  if (!done.length) $("#kb-done").style.display = "none";
 
-  if (!tasks.length) root.append(el("div", "muted", "board vazio no momento."));
+  $("#ticker").innerHTML =
+    `<span class="stat"><b>${N_PROJECTS}</b> projetos</span><span class="sep">·</span>` +
+    `<span class="stat"><b>${N_BOTS}</b> bots ativos</span><span class="sep">·</span>` +
+    `<span class="stat"><b>${active.length}</b> tasks em movimento</span><span class="sep">·</span>` +
+    `<span class="stat">${done.length} concluídas</span>`;
 }
 load();
 </script>
