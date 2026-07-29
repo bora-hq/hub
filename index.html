@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>bora-hq — hub</title>
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  :root {
+    --bg: #0e1116; --surface: #161b23; --surface-2: #1d242f;
+    --text: #e8eaed; --muted: #8b93a1;
+    --accent: #7ee0b8; --accent-2: #e0b97e; --danger: #e07e8b;
+    --radius: 14px; --space: 14px;
+    --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  body {
+    background: var(--bg); color: var(--text); font-family: var(--font);
+    font-size: 15px; line-height: 1.5; padding-bottom: 40px;
+  }
+  main { max-width: 860px; margin: 0 auto; padding: 0 var(--space); }
+  header { padding: 2.2rem var(--space) 1.2rem; text-align: center; }
+  header h1 { font-size: 1.6rem; font-weight: 650; }
+  header p { color: var(--muted); font-size: .92rem; margin-top: 6px; max-width: 46ch; margin-inline: auto; }
+  .card {
+    background: var(--surface); border-radius: var(--radius);
+    padding: var(--space); margin-bottom: var(--space);
+  }
+  .card h2 { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em;
+             color: var(--muted); margin-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--surface-2); }
+  th { color: var(--muted); font-weight: 600; font-size: .75rem; text-transform: uppercase; }
+  td.status { white-space: nowrap; color: var(--muted); font-size: .82rem; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .kb-summary { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .kb-summary .n { background: var(--surface-2); border-radius: 999px; padding: 5px 12px; font-size: .8rem; }
+  .kb-summary .n b { color: var(--accent); }
+  .kb-group { margin-bottom: 18px; }
+  .kb-group:last-child { margin-bottom: 0; }
+  .kb-group h3 { font-size: .95rem; font-weight: 650; margin-bottom: 8px; text-transform: capitalize; }
+  .kb-task { display: flex; gap: 10px; align-items: baseline; padding: 7px 0;
+             border-bottom: 1px solid var(--surface-2); }
+  .kb-task:last-child { border-bottom: none; }
+  .kb-task .t { flex: 1; min-width: 0; }
+  .kb-task .badge {
+    flex: none; font-size: .7rem; text-transform: uppercase; letter-spacing: .04em;
+    background: var(--surface-2); color: var(--muted); border-radius: 999px; padding: 2px 9px;
+  }
+  .kb-task .badge.blocked { color: var(--danger); }
+  .kb-task .badge.ready, .kb-task .badge.todo { color: var(--accent-2); }
+  .kb-task .badge.done { color: var(--accent); }
+  .muted { color: var(--muted); font-size: .85rem; }
+  footer { text-align: center; color: var(--muted); font-size: .78rem; padding: 20px var(--space) 0; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>bora-hq</h1>
+  <p>Ecossistema de produtos, agentes e infra própria do Lucas Antunes. Ponto de entrada e descoberta — nada de teatro de assistente.</p>
+</header>
+
+<main>
+  <div class="card">
+    <h2>Projetos</h2>
+    <table>
+      <thead><tr><th>Projeto</th><th>Descrição</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://github.com/bora-hq/hub">hub</a></td><td>Este repo — porta de entrada e índice vivo do ecossistema</td><td class="status">Ativo</td></tr>
+        <tr><td><a href="https://github.com/bora-hq/aptdata">aptdata</a></td><td>Plataforma de dados para contabilidade (SaaS principal)</td><td class="status">Em estruturação</td></tr>
+        <tr><td><a href="https://github.com/bora-hq/eco">eco</a></td><td>Dona — agente introspectivo (Takeout Insights)</td><td class="status">Produção</td></tr>
+        <tr><td><a href="https://github.com/bora-hq/visu">visu</a></td><td>Lab de UI/UX, componentes e design system</td><td class="status">Exploração</td></tr>
+        <tr><td><a href="https://github.com/bora-hq/fessora">fessora</a></td><td>Sistema de aulas de inglês</td><td class="status">Em desenvolvimento</td></tr>
+        <tr><td><a href="https://github.com/bora-hq/hermes-desktop">hermes-desktop</a></td><td>Cliente desktop (web + Tauri) pro Hermes Agent</td><td class="status">Em desenvolvimento</td></tr>
+        <tr><td><a href="https://github.com/bora-hq/lab">lab</a></td><td>Monorepo de kits e experimentos de IA</td><td class="status">Pausado</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Kanban — board ecossistema</h2>
+    <p class="muted" style="margin-bottom:12px">Snapshot só-leitura, sincronizado a cada poucos minutos. Agrupado por produto/projeto.</p>
+    <div id="kb-summary" class="kb-summary"></div>
+    <div id="kb-root"></div>
+  </div>
+</main>
+
+<footer>
+  <a href="https://github.com/bora-hq">github.com/bora-hq</a> · dado exportado de <a href="https://github.com/bora-hq/kanban-sync">kanban-sync</a>
+</footer>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const el = (tag, cls, txt) => {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (txt !== undefined) e.textContent = txt;
+  return e;
+};
+const STATUS_ORDER = ["ready", "running", "review", "todo", "scheduled", "blocked", "triage", "done"];
+
+async function load() {
+  let tasks;
+  try {
+    const r = await fetch("data/kanban_public.json", { cache: "no-store" });
+    tasks = await r.json();
+  } catch {
+    $("#kb-root").innerHTML = "";
+    $("#kb-root").append(el("div", "muted", "não consegui carregar o kanban agora."));
+    return;
+  }
+
+  const counts = {};
+  tasks.forEach((t) => { counts[t.status] = (counts[t.status] || 0) + 1; });
+  const summary = $("#kb-summary");
+  summary.innerHTML = "";
+  STATUS_ORDER.filter((s) => counts[s]).forEach((s) => {
+    const n = el("span", "n");
+    n.innerHTML = `<b>${counts[s]}</b> ${s}`;
+    summary.append(n);
+  });
+
+  const byTenant = {};
+  tasks.forEach((t) => {
+    const k = t.tenant || "geral";
+    (byTenant[k] = byTenant[k] || []).push(t);
+  });
+
+  const root = $("#kb-root");
+  root.innerHTML = "";
+  Object.keys(byTenant).sort().forEach((tenant) => {
+    const group = el("div", "kb-group");
+    group.append(el("h3", "", tenant));
+    byTenant[tenant]
+      .sort((a, b) => STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status) || a.priority - b.priority)
+      .forEach((t) => {
+        const row = el("div", "kb-task");
+        row.append(el("span", "t", t.title));
+        row.append(el("span", "badge " + t.status, t.status));
+        group.append(row);
+      });
+    root.append(group);
+  });
+
+  if (!tasks.length) root.append(el("div", "muted", "board vazio no momento."));
+}
+load();
+</script>
+</body>
+</html>
