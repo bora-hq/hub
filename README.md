@@ -32,16 +32,14 @@ Foco: **produtos reais**, **agentes autônomos** e **infra própria** — nada d
 
 ---
 
-## 🤖 Bots em Produção
+## 🤖 Bots em Produção — bora-hq
 
-> **Esta seção é a FONTE CANÔNICA dos bots vivos do ecossistema. Edite aqui.**
+> **Esta seção é a FONTE CANÔNICA dos bots do ecossistema bora-hq. Edite aqui.**
+> Bots pessoais/de terceiros (chat casual, favores pra família e amigos) não entram aqui — ficam documentados em `antunes-hq`.
 
 | Bot | Plataforma | Modelo | Onde roda | Função |
 |-----|------------|--------|-----------|--------|
 | **Dona** | Web (FastAPI) | OpenRouter | VPS (Docker) | Agente introspectivo / Takeout Insights |
-| **Serginho** | Telegram | deepseek-chat | VPS (OpenClaw) | Chat casual / Audi |
-| **Formiga** | Telegram | deepseek-chat | VPS (OpenClaw) | Irmã / Facilitadora |
-| **Casamento M&V** | Telegram | trinity-large-thinking | Local (Docker) | Organização do casamento |
 
 ---
 
