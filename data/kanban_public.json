@@ -640,6 +640,26 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_5661be8f",
+    "title": "Homologar Dona (review seguranca + checklist)",
+    "status": "done",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785440625,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_a32bc6d9",
+    "title": "custo-por-app: Criar script custo_por_app.py (coleta + rateio + JSON)",
+    "status": "done",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785448302,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_7f11559a",
     "title": "Mindflow — backlog ativo do app",
     "status": "done",
@@ -887,26 +907,6 @@
     "assignee": "bora",
     "priority": 3,
     "created_at": 1785453703,
-    "board": "ecossistema"
-  },
-  {
-    "id": "t_5661be8f",
-    "title": "Homologar Dona (review seguranca + checklist)",
-    "status": "running",
-    "tenant": null,
-    "assignee": "default",
-    "priority": 2,
-    "created_at": 1785440625,
-    "board": "ecossistema"
-  },
-  {
-    "id": "t_a32bc6d9",
-    "title": "custo-por-app: Criar script custo_por_app.py (coleta + rateio + JSON)",
-    "status": "running",
-    "tenant": null,
-    "assignee": "default",
-    "priority": 2,
-    "created_at": 1785448302,
     "board": "ecossistema"
   },
   {
