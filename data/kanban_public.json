@@ -80,16 +80,6 @@
     "board": "ecossistema"
   },
   {
-    "id": "t_c7765d66",
-    "title": "P1 — Multi-tenancy: professor_id + migration + domain refactor",
-    "status": "blocked",
-    "tenant": "default",
-    "assignee": "bora",
-    "priority": 1,
-    "created_at": 1785377930,
-    "board": "ecossistema"
-  },
-  {
     "id": "t_9e7b42e2",
     "title": "FE2 — HERMES_WORKSPACE + reescrever 19 sítios dinâmicos",
     "status": "blocked",
@@ -147,16 +137,6 @@
     "assignee": "bora",
     "priority": 2,
     "created_at": 1785211689,
-    "board": "ecossistema"
-  },
-  {
-    "id": "t_0e3f7b7a",
-    "title": "P2 — Scaffold: make instance name=prof",
-    "status": "blocked",
-    "tenant": "default",
-    "assignee": "coder",
-    "priority": 2,
-    "created_at": 1785377931,
     "board": "ecossistema"
   },
   {
@@ -430,6 +410,16 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_c7765d66",
+    "title": "P1 — Multi-tenancy: professor_id + migration + domain refactor",
+    "status": "done",
+    "tenant": "default",
+    "assignee": "bora",
+    "priority": 1,
+    "created_at": 1785377930,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_a4f0c376",
     "title": "flow: Registry SQLite async (< 10ms) + Query",
     "status": "done",
@@ -607,6 +597,16 @@
     "assignee": "coder",
     "priority": 2,
     "created_at": 1785290517,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_0e3f7b7a",
+    "title": "P2 — Scaffold: make instance name=prof",
+    "status": "done",
+    "tenant": "default",
+    "assignee": "coder",
+    "priority": 2,
+    "created_at": 1785377931,
     "board": "ecossistema"
   },
   {
