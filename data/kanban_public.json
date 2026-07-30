@@ -800,6 +800,16 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_fd0beba9",
+    "title": "fabrica-lockin: Dockerfile + docker-compose Claude Code container",
+    "status": "ready",
+    "tenant": null,
+    "assignee": "coder",
+    "priority": 1,
+    "created_at": 1785453678,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_5661be8f",
     "title": "Homologar Dona (review seguranca + checklist)",
     "status": "ready",
@@ -837,6 +847,46 @@
     "assignee": "default",
     "priority": 2,
     "created_at": 1785448304,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_28574f60",
+    "title": "fabrica-lockin: Skill claude-dispatch (Hermes → container)",
+    "status": "ready",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785453701,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_89cb5474",
+    "title": "fabrica-lockin: Schema YAML de lockin por repo + validação",
+    "status": "ready",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785453701,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_470d2b63",
+    "title": "fabrica-lockin: Observabilidade — custo por app + tokens por sessão",
+    "status": "ready",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785453702,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_0e2c39f9",
+    "title": "fabrica-lockin: Telegram MCP + WhatsApp gateway (multiplataforma)",
+    "status": "ready",
+    "tenant": null,
+    "assignee": "bora",
+    "priority": 3,
+    "created_at": 1785453703,
     "board": "ecossistema"
   },
   {
