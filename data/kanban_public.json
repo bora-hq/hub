@@ -150,6 +150,16 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_0e3f7b7a",
+    "title": "P2 — Scaffold: make instance name=prof",
+    "status": "blocked",
+    "tenant": "default",
+    "assignee": "coder",
+    "priority": 2,
+    "created_at": 1785377931,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_0688c207",
     "title": "Flow-viz do comportamento (saúde TDAH)",
     "status": "blocked",
@@ -600,6 +610,16 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_44b7b298",
+    "title": "P3 — Dashboard Monitor: 1 tela de métricas",
+    "status": "done",
+    "tenant": "default",
+    "assignee": "bora",
+    "priority": 2,
+    "created_at": 1785377932,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_0d87ec05",
     "title": "P4 — Landing page template por professora",
     "status": "done",
@@ -767,26 +787,6 @@
     "assignee": "default",
     "priority": 5,
     "created_at": 1785114261,
-    "board": "ecossistema"
-  },
-  {
-    "id": "t_0e3f7b7a",
-    "title": "P2 — Scaffold: make instance name=prof",
-    "status": "running",
-    "tenant": "default",
-    "assignee": "coder",
-    "priority": 2,
-    "created_at": 1785377931,
-    "board": "ecossistema"
-  },
-  {
-    "id": "t_44b7b298",
-    "title": "P3 — Dashboard Monitor: 1 tela de métricas",
-    "status": "running",
-    "tenant": "default",
-    "assignee": "bora",
-    "priority": 2,
-    "created_at": 1785377932,
     "board": "ecossistema"
   },
   {
