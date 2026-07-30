@@ -790,6 +790,16 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_9bf4378f",
+    "title": "custo-por-app: Levantar custos reais (VPS, domínios, OpenRouter)",
+    "status": "ready",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 1,
+    "created_at": 1785448281,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_5661be8f",
     "title": "Homologar Dona (review seguranca + checklist)",
     "status": "ready",
@@ -797,6 +807,36 @@
     "assignee": "default",
     "priority": 2,
     "created_at": 1785440625,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_a32bc6d9",
+    "title": "custo-por-app: Criar script custo_por_app.py (coleta + rateio + JSON)",
+    "status": "ready",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785448302,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_af7aefe2",
+    "title": "custo-por-app: Integrar tabela no painel (dash)",
+    "status": "ready",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785448303,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_5755078d",
+    "title": "custo-por-app: Adicionar cron semanal e atualizar experimentos.json",
+    "status": "ready",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785448304,
     "board": "ecossistema"
   },
   {
