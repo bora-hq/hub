@@ -70,16 +70,6 @@
     "board": "ecossistema"
   },
   {
-    "id": "t_a2e1ac59",
-    "title": "F0.2 Zeca → loopback only",
-    "status": "blocked",
-    "tenant": "infra",
-    "assignee": "coder",
-    "priority": 1,
-    "created_at": 1785209769,
-    "board": "ecossistema"
-  },
-  {
     "id": "t_e36266e0",
     "title": "F0.1 — ufw default-deny na VPS + rebind painéis p/ loopback [MANUAL]",
     "status": "blocked",
