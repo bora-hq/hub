@@ -310,6 +310,26 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_19405258",
+    "title": "Adicionar release-drafter workflow + conventional commits (commitlint) para version bump automático",
+    "status": "done",
+    "tenant": "infra",
+    "assignee": "coder",
+    "priority": 0,
+    "created_at": 1785374504,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_2b904b3f",
+    "title": "Agendar github-garden-cleanup cron semanal (limpa branches stale, PRs zumbis)",
+    "status": "done",
+    "tenant": "infra",
+    "assignee": "coder",
+    "priority": 0,
+    "created_at": 1785374508,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_28dcd918",
     "title": "App do Trabalhador Autônomo — produto oficial",
     "status": "done",
@@ -707,26 +727,6 @@
     "assignee": "coder",
     "priority": 0,
     "created_at": 1785374500,
-    "board": "ecossistema"
-  },
-  {
-    "id": "t_19405258",
-    "title": "Adicionar release-drafter workflow + conventional commits (commitlint) para version bump automático",
-    "status": "running",
-    "tenant": "infra",
-    "assignee": "coder",
-    "priority": 0,
-    "created_at": 1785374504,
-    "board": "ecossistema"
-  },
-  {
-    "id": "t_2b904b3f",
-    "title": "Agendar github-garden-cleanup cron semanal (limpa branches stale, PRs zumbis)",
-    "status": "running",
-    "tenant": "infra",
-    "assignee": "coder",
-    "priority": 0,
-    "created_at": 1785374508,
     "board": "ecossistema"
   },
   {
