@@ -16,16 +16,19 @@ Foco: **produtos reais**, **agentes autônomos** e **infra própria** — nada d
 | Projeto | Repo | Descrição | Status |
 |---------|------|-----------|--------|
 | **hub** | `bora-hq/hub` | Este repo — porta de entrada e índice vivo do ecossistema | 🟢 Ativo |
-| **aptdata** | `bora-hq/aptdata` | Plataforma de dados para contabilidade (SaaS principal) | 🟡 Em estruturação |
-| **eco** | `bora-hq/eco` | Dona — agente introspectivo (Takeout Insights) | 🟢 Produção (VPS) |
+| **aptdata** | `bora-hq/aptdata` | Plataforma de dados para contabilidade (SaaS principal) | 🔴 Pausado |
+| **flow** | `bora-hq/eco` | Framework 5W2H — contrato de eventos (antes: Dona) | 🟢 Ativo |
+| **dona** | `bora-hq/dona` | Agente introspectivo (Takeout Insights) — **homologação pendente** | 🟡 Revisão |
 | **lab** | `bora-hq/lab` | Monorepo de kits e experimentos de IA (AI Labs) | 🟡 Pausado |
 | **visu** | `bora-hq/visu` | Lab de UI/UX, componentes e design system | 🟡 Exploração |
-| **fessora** | `bora-hq/fessora` | Sistema de aulas de inglês (Mariana) | 🟡 Em desenvolvimento |
+| **fessora** | `bora-hq/fessora` | Plataforma multi-professor (scaffold + dashboard + landing) | 🟢 Ativo |
 | **hermes-desktop** | `bora-hq/hermes-desktop` | Cliente desktop (web + Tauri) pro Hermes Agent | 🟡 Em desenvolvimento |
-| **mavi** | `antunes-hq/mavi` | Bot do casamento Mari & Vini (OpenClaw) | 🟢 Produção (Local) |
+| **mavi** | `antunes-hq/mavi` | Bot do casamento Mari & Vini (OpenClaw) | 🟢 Produção (VPS) |
 | **dash** | `antunes-hq/dash` | Painel pessoal do Lucas | 🟡 Em desenvolvimento |
 | **feed** | `antunes-hq/feed` | Pipeline de conteúdo redes sociais | 🟡 Em desenvolvimento |
 | **bio** | `antunes-hq/bio` | Landing pessoal pública | 🟡 Em desenvolvimento |
+| **custo-por-app** | `bora-hq/custo-por-app` | Estrutura de visibilidade de custos por app | 🟡 Semente |
+| **fabrica-lockin** | — | Orquestração distribuída multiplataforma | 🟡 Prototipação |
 
 > Projetos pessoais (finanças, painel, conteúdo) ficam em `antunes-hq/`.  
 > Projetos do ecossistema SaaS/bots ficam em `bora-hq/`.
@@ -39,7 +42,10 @@ Foco: **produtos reais**, **agentes autônomos** e **infra própria** — nada d
 
 | Bot | Plataforma | Modelo | Onde roda | Função |
 |-----|------------|--------|-----------|--------|
-| **Dona** | Web (FastAPI) | OpenRouter | VPS (Docker) | Agente introspectivo / Takeout Insights |
+| **Dona** | Web (FastAPI) | OpenRouter | VPS (Docker) | Agente introspectivo / Takeout Insights — **homologação pendente** |
+| **Mavi** | Telegram | deepseek-chat | VPS (Docker) | Casamento Mari & Vini |
+| **Irma** | Telegram | deepseek-chat | VPS (Docker) | Irmã do Lucas (Faciliter) |
+| **Serginho** | Telegram | deepseek-chat | VPS (Docker) | Chat casual |
 
 ---
 
@@ -47,10 +53,12 @@ Foco: **produtos reais**, **agentes autônomos** e **infra própria** — nada d
 
 | Componente | Onde | Detalhes |
 |------------|------|----------|
-| **VPS** | Hostinger | acesso via chave SSH (contato: Lucas) — Docker, systemd, Nginx, PostgreSQL |
-| **Dona** | Container `dona-dona-1` | FastAPI + systemd, exposto via Nginx + SSL |
+| **VPS (sandbox)** | Hostinger `srv1723096` | acesso via chave SSH — Docker, systemd, Nginx, PostgreSQL |
+| **Dona** | Container `dona-dona-1` | FastAPI + systemd, exposto via Nginx + SSL — **homologação pendente** |
 | **OpenClaw Bots** | Containers individuais | Pairing via QR code, sessões persistidas |
 | **Hermes Agent** | Local (Lucas) | Agente principal — `~/.hermes`, modelo DeepSeek via OpenRouter |
+| **Claude Code** | Container (a montar) | Executor pesado — remote control, volume `.claude/` no host |
+| **OpenCode Zen** | API externa | Fallback de LLM (free tier) — configurado no Hermes |
 | **GitHub** | Orgs `bora-hq` + `antunes-hq` | Source of truth, CI/CD, Issues, Projects |
 
 ---
@@ -58,24 +66,26 @@ Foco: **produtos reais**, **agentes autônomos** e **infra própria** — nada d
 ## 📁 Estrutura do Workspace Local
 
 ```
-~/Documentos/
-├── ecossistema/
-│   ├── hub/              ← ESTE REPO
-│   ├── mindflow/         ← App criativo principal
-│   ├── smart-data/       ← aptdata (bora-hq/aptdata)
-│   ├── ai-labs/          ← lab (bora-hq/lab) — PAUSADO
-│   ├── visu/             ← visu (bora-hq/visu)
-│   ├── takeout-insights/ ← eco (bora-hq/eco)
-│   └── estrategia-saas/  ← Fonte da verdade estratégia APT Data
-├── pessoal/
-│   ├── financas/         ← Dashboard financeiro (local-only)
-│   ├── mariana-ingles/   ← fessora (bora-hq/fessora)
-│   ├── casamento-mari-vini/ ← mavi (antunes-hq/mavi)
-│   ├── painel/           ← dash (antunes-hq/dash)
-│   ├── canais/           ← feed (antunes-hq/feed)
-│   └── bio/              ← bio (antunes-hq/bio)
-├── archive/              ← Cemitério oficial (consulta only)
-└── scripts/              ← Scripts de infra do workspace
+~/lab/
+├── bora-hq/            ← Projetos do ecossistema SaaS/bots
+│   ├── hub/            ← ESTE REPO
+│   ├── aptdata/        ← Plataforma de dados (pausado)
+│   ├── flow/           ← Framework 5W2H (repo bora-hq/eco)
+│   ├── dona/           ← Agente introspectivo (repo bora-hq/dona)
+│   ├── lab/            ← AI Labs (pausado)
+│   ├── visu/           ← Lab de UI/UX
+│   ├── fessora/        ← Plataforma multi-professor
+│   ├── hermes-desktop/ ← Cliente desktop Hermes
+│   └── custo-por-app/  ← Visibilidade de custos
+├── antunes-hq/         ← Projetos pessoais
+│   ├── financas/       ← Dashboard financeiro (local-only)
+│   ├── mavi/           ← Bot casamento (repo antunes-hq/mavi)
+│   ├── painel/         ← Painel do Lucas (repo antunes-hq/dash)
+│   ├── canais/         ← Conteúdo redes (repo antunes-hq/feed)
+│   ├── bio/            ← Landing pessoal (repo antunes-hq/bio)
+│   └── journal/        ← Diário e goals
+├── archive/            ← Cemitério oficial (consulta only)
+└── .hermes/            ← Plans, analysis, state
 ```
 
 ---
@@ -119,8 +129,11 @@ gh repo clone bora-hq/fessora
 - **Source of truth**: GitHub (`bora-hq/` + `antunes-hq/`)
 - **Issues/Projects**: GitHub Projects (kanban multi-board via `hermes kanban`)
 - **Agente principal**: Hermes Agent (`~/.hermes`) — modelo DeepSeek via OpenRouter
+- **Fallback LLM**: OpenCode Zen (free tier) — configurado no Hermes
+- **Executor pesado**: Claude Code em container (remote control) — a montar
 - **Cron jobs**: `~/.hermes/cron/jobs.json` (morning digest, cost alert, garden cleanup, bot fleet monitor)
-- **Estado do dia**: `~/.hermes/scripts/hermes_state.py` → `~/Documentos/pessoal/journal/goals.md`
+- **Estado do dia**: `~/.hermes/scripts/hermes_state.py` → `~/lab/antunes-hq/journal/goals.md`
+- **Orquestração**: Fábrica Lockin Multiplataforma — plano em `.hermes/plans/2026-07-30_200000-fabrica-lockin-multiplataforma.md`
 
 ---
 
