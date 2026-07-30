@@ -310,6 +310,36 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_6c9fd0a7",
+    "title": "Fix test_caminhos regression: hr.varrer() boards dropped from 7 to 3",
+    "status": "done",
+    "tenant": "testes",
+    "assignee": "coder",
+    "priority": 0,
+    "created_at": 1785374456,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_32bbc5f8",
+    "title": "Atualizar allowlist test_exposicao.py: auditar portas 27500 (local) + 8123/8000/20128/48334/54100/55000 (VPS)",
+    "status": "done",
+    "tenant": "testes",
+    "assignee": "coder",
+    "priority": 0,
+    "created_at": 1785374460,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_cd921261",
+    "title": "Configurar branch protection main/lucas/main: required checks (ci-core, ci-cli, ci-integration) + require PR reviews",
+    "status": "done",
+    "tenant": "infra",
+    "assignee": "coder",
+    "priority": 0,
+    "created_at": 1785374500,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_19405258",
     "title": "Adicionar release-drafter workflow + conventional commits (commitlint) para version bump automático",
     "status": "done",
@@ -697,36 +727,6 @@
     "assignee": null,
     "priority": 2,
     "created_at": 1785290517,
-    "board": "ecossistema"
-  },
-  {
-    "id": "t_6c9fd0a7",
-    "title": "Fix test_caminhos regression: hr.varrer() boards dropped from 7 to 3",
-    "status": "running",
-    "tenant": "testes",
-    "assignee": "coder",
-    "priority": 0,
-    "created_at": 1785374456,
-    "board": "ecossistema"
-  },
-  {
-    "id": "t_32bbc5f8",
-    "title": "Atualizar allowlist test_exposicao.py: auditar portas 27500 (local) + 8123/8000/20128/48334/54100/55000 (VPS)",
-    "status": "running",
-    "tenant": "testes",
-    "assignee": "coder",
-    "priority": 0,
-    "created_at": 1785374460,
-    "board": "ecossistema"
-  },
-  {
-    "id": "t_cd921261",
-    "title": "Configurar branch protection main/lucas/main: required checks (ci-core, ci-cli, ci-integration) + require PR reviews",
-    "status": "running",
-    "tenant": "infra",
-    "assignee": "coder",
-    "priority": 0,
-    "created_at": 1785374500,
     "board": "ecossistema"
   },
   {
