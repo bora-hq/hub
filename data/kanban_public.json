@@ -880,6 +880,26 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_12eb9df8",
+    "title": "hub: revisar doc atualizada (bora-hq/hub)",
+    "status": "ready",
+    "tenant": null,
+    "assignee": "bora",
+    "priority": 2,
+    "created_at": 1785454081,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_b130f6ee",
+    "title": "hub: revisar doc atualizada (coder)",
+    "status": "ready",
+    "tenant": null,
+    "assignee": "coder",
+    "priority": 2,
+    "created_at": 1785454093,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_0e2c39f9",
     "title": "fabrica-lockin: Telegram MCP + WhatsApp gateway (multiplataforma)",
     "status": "ready",
