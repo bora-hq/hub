@@ -790,6 +790,16 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_5661be8f",
+    "title": "Homologar Dona (review seguranca + checklist)",
+    "status": "ready",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785440625,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_c1a23dc6",
     "title": "Dona VPS: fix health check (/root/.hermes path no container)",
     "status": "scheduled",
