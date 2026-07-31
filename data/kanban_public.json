@@ -710,6 +710,16 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_470d2b63",
+    "title": "fabrica-lockin: Observabilidade — custo por app + tokens por sessão",
+    "status": "done",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785453702,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_12eb9df8",
     "title": "hub: revisar doc atualizada (bora-hq/hub)",
     "status": "done",
@@ -897,16 +907,6 @@
     "assignee": "default",
     "priority": 2,
     "created_at": 1785453701,
-    "board": "ecossistema"
-  },
-  {
-    "id": "t_470d2b63",
-    "title": "fabrica-lockin: Observabilidade — custo por app + tokens por sessão",
-    "status": "running",
-    "tenant": null,
-    "assignee": "default",
-    "priority": 2,
-    "created_at": 1785453702,
     "board": "ecossistema"
   },
   {
