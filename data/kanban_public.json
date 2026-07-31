@@ -910,6 +910,16 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_bot_review_476269",
+    "title": "bots: Revisar troca de modelo mavi/claw-sis pro OpenCode Zen free",
+    "status": "ready",
+    "tenant": "hermes-infra",
+    "assignee": "coder",
+    "priority": 1,
+    "created_at": 1785476269,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_28574f60",
     "title": "fabrica-lockin: Skill claude-dispatch (Hermes → container)",
     "status": "ready",
