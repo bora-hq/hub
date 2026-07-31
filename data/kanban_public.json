@@ -940,6 +940,46 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_d971edc2",
+    "title": "Análise 31/07: Rodar ritual de domingo manualmente - falhou 28/07 com 502",
+    "status": "ready",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 1,
+    "created_at": 1785526660,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_b7508b87",
+    "title": "Análise 31/07: Triagem dos 41 cards blocked - classificar em 3 pilhas",
+    "status": "ready",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 1,
+    "created_at": 1785526661,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_5449b658",
+    "title": "Análise 31/07: Definir dono pra frente carreira - curriculo LinkedIn job hunt",
+    "status": "ready",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 1,
+    "created_at": 1785526663,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_34cd8852",
+    "title": "Análise 31/07: Modelar depends_on entre cards do kanban - graph engineering interno",
+    "status": "ready",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785526665,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_c1a23dc6",
     "title": "Dona VPS: fix health check (/root/.hermes path no container)",
     "status": "scheduled",
