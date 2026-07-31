@@ -900,6 +900,16 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_488ba68e",
+    "title": "bots: Recarregar credito OpenRouter (mavi + claw-sis 402 billing)",
+    "status": "ready",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 1,
+    "created_at": 1785475717,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_28574f60",
     "title": "fabrica-lockin: Skill claude-dispatch (Hermes → container)",
     "status": "ready",
