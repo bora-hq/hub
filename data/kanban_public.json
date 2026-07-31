@@ -170,6 +170,16 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_0e2c39f9",
+    "title": "fabrica-lockin: Telegram MCP + WhatsApp gateway (multiplataforma)",
+    "status": "blocked",
+    "tenant": null,
+    "assignee": "bora",
+    "priority": 3,
+    "created_at": 1785453703,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_a5939160",
     "title": "Dona: cron de iniciativa rara — domingo 18h, verifica se tem algo pra dizer",
     "status": "done",
@@ -417,6 +427,16 @@
     "assignee": "bora",
     "priority": 1,
     "created_at": 1785377930,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_9bf4378f",
+    "title": "custo-por-app: Levantar custos reais (VPS, domínios, OpenRouter)",
+    "status": "done",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 1,
+    "created_at": 1785448281,
     "board": "ecossistema"
   },
   {
@@ -670,6 +690,26 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_af7aefe2",
+    "title": "custo-por-app: Integrar tabela no painel (dash)",
+    "status": "done",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785448303,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_5755078d",
+    "title": "custo-por-app: Adicionar cron semanal e atualizar experimentos.json",
+    "status": "done",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785448304,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_12eb9df8",
     "title": "hub: revisar doc atualizada (bora-hq/hub)",
     "status": "done",
@@ -840,36 +880,6 @@
     "board": "ecossistema"
   },
   {
-    "id": "t_9bf4378f",
-    "title": "custo-por-app: Levantar custos reais (VPS, domínios, OpenRouter)",
-    "status": "ready",
-    "tenant": null,
-    "assignee": "default",
-    "priority": 1,
-    "created_at": 1785448281,
-    "board": "ecossistema"
-  },
-  {
-    "id": "t_af7aefe2",
-    "title": "custo-por-app: Integrar tabela no painel (dash)",
-    "status": "ready",
-    "tenant": null,
-    "assignee": "default",
-    "priority": 2,
-    "created_at": 1785448303,
-    "board": "ecossistema"
-  },
-  {
-    "id": "t_5755078d",
-    "title": "custo-por-app: Adicionar cron semanal e atualizar experimentos.json",
-    "status": "ready",
-    "tenant": null,
-    "assignee": "default",
-    "priority": 2,
-    "created_at": 1785448304,
-    "board": "ecossistema"
-  },
-  {
     "id": "t_28574f60",
     "title": "fabrica-lockin: Skill claude-dispatch (Hermes → container)",
     "status": "ready",
@@ -892,21 +902,11 @@
   {
     "id": "t_470d2b63",
     "title": "fabrica-lockin: Observabilidade — custo por app + tokens por sessão",
-    "status": "ready",
+    "status": "running",
     "tenant": null,
     "assignee": "default",
     "priority": 2,
     "created_at": 1785453702,
-    "board": "ecossistema"
-  },
-  {
-    "id": "t_0e2c39f9",
-    "title": "fabrica-lockin: Telegram MCP + WhatsApp gateway (multiplataforma)",
-    "status": "ready",
-    "tenant": null,
-    "assignee": "bora",
-    "priority": 3,
-    "created_at": 1785453703,
     "board": "ecossistema"
   },
   {
