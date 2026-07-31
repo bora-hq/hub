@@ -890,6 +890,16 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_coder_gw_474980",
+    "title": "analysis: Subir gateway do coder (5 tasks ready paradas)",
+    "status": "ready",
+    "tenant": "hermes-infra",
+    "assignee": "default",
+    "priority": 1,
+    "created_at": 1785474980,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_28574f60",
     "title": "fabrica-lockin: Skill claude-dispatch (Hermes → container)",
     "status": "ready",
