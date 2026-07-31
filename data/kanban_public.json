@@ -80,6 +80,16 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_488ba68e",
+    "title": "bots: Recarregar credito OpenRouter (mavi + claw-sis 402 billing)",
+    "status": "blocked",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 1,
+    "created_at": 1785475717,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_9e7b42e2",
     "title": "FE2 — HERMES_WORKSPACE + reescrever 19 sítios dinâmicos",
     "status": "blocked",
@@ -137,6 +147,26 @@
     "assignee": "bora",
     "priority": 2,
     "created_at": 1785211689,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_28574f60",
+    "title": "fabrica-lockin: Skill claude-dispatch (Hermes → container)",
+    "status": "blocked",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785453701,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_89cb5474",
+    "title": "fabrica-lockin: Schema YAML de lockin por repo + validação",
+    "status": "blocked",
+    "tenant": null,
+    "assignee": "default",
+    "priority": 2,
+    "created_at": 1785453701,
     "board": "ecossistema"
   },
   {
@@ -447,6 +477,16 @@
     "assignee": "coder",
     "priority": 1,
     "created_at": 1785453678,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_coder_gw_474980",
+    "title": "analysis: Subir gateway do coder (5 tasks ready paradas)",
+    "status": "done",
+    "tenant": "hermes-infra",
+    "assignee": "default",
+    "priority": 1,
+    "created_at": 1785474980,
     "board": "ecossistema"
   },
   {
@@ -890,53 +930,13 @@
     "board": "ecossistema"
   },
   {
-    "id": "t_coder_gw_474980",
-    "title": "analysis: Subir gateway do coder (5 tasks ready paradas)",
-    "status": "ready",
-    "tenant": "hermes-infra",
-    "assignee": "default",
-    "priority": 1,
-    "created_at": 1785474980,
-    "board": "ecossistema"
-  },
-  {
-    "id": "t_488ba68e",
-    "title": "bots: Recarregar credito OpenRouter (mavi + claw-sis 402 billing)",
-    "status": "ready",
-    "tenant": null,
-    "assignee": "default",
-    "priority": 1,
-    "created_at": 1785475717,
-    "board": "ecossistema"
-  },
-  {
     "id": "t_bot_review_476269",
     "title": "bots: Revisar troca de modelo mavi/claw-sis pro OpenCode Zen free",
-    "status": "ready",
+    "status": "running",
     "tenant": "hermes-infra",
     "assignee": "coder",
     "priority": 1,
     "created_at": 1785476269,
-    "board": "ecossistema"
-  },
-  {
-    "id": "t_28574f60",
-    "title": "fabrica-lockin: Skill claude-dispatch (Hermes → container)",
-    "status": "ready",
-    "tenant": null,
-    "assignee": "default",
-    "priority": 2,
-    "created_at": 1785453701,
-    "board": "ecossistema"
-  },
-  {
-    "id": "t_89cb5474",
-    "title": "fabrica-lockin: Schema YAML de lockin por repo + validação",
-    "status": "ready",
-    "tenant": null,
-    "assignee": "default",
-    "priority": 2,
-    "created_at": 1785453701,
     "board": "ecossistema"
   },
   {
