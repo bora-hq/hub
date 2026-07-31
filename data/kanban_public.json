@@ -490,6 +490,16 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_bot_review_476269",
+    "title": "bots: Revisar troca de modelo mavi/claw-sis pro OpenCode Zen free",
+    "status": "done",
+    "tenant": "hermes-infra",
+    "assignee": "coder",
+    "priority": 1,
+    "created_at": 1785476269,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_a4f0c376",
     "title": "flow: Registry SQLite async (< 10ms) + Query",
     "status": "done",
@@ -927,16 +937,6 @@
     "assignee": "default",
     "priority": 5,
     "created_at": 1785114261,
-    "board": "ecossistema"
-  },
-  {
-    "id": "t_bot_review_476269",
-    "title": "bots: Revisar troca de modelo mavi/claw-sis pro OpenCode Zen free",
-    "status": "running",
-    "tenant": "hermes-infra",
-    "assignee": "coder",
-    "priority": 1,
-    "created_at": 1785476269,
     "board": "ecossistema"
   },
   {
