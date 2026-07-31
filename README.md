@@ -53,13 +53,15 @@ Foco: **produtos reais**, **agentes autônomos** e **infra própria** — nada d
 
 | Componente | Onde | Detalhes |
 |------------|------|----------|
-| **VPS (sandbox)** | Hostinger `srv1723096` | acesso via chave SSH — Docker, systemd, Nginx, PostgreSQL |
+| **VPS (sandbox)** | Hostinger `srv1723096.hstgr.cloud` | acesso via chave SSH — Docker, systemd, Nginx, PostgreSQL |
 | **Dona** | Container `dona-dona-1` | FastAPI + systemd, exposto via Nginx + SSL — **homologação pendente** |
 | **OpenClaw Bots** | Containers individuais | Pairing via QR code, sessões persistidas |
 | **Hermes Agent** | Local (Lucas) | Agente principal — `~/.hermes`, modelo DeepSeek via OpenRouter |
-| **Claude Code** | Container (a montar) | Executor pesado — remote control, volume `.claude/` no host |
+| **Claude Code** | Container (a montar) | Executor pesado — remote control, volume `.claude/` no host — **Dockerfile ainda não existe** |
 | **OpenCode Zen** | API externa | Fallback de LLM (free tier) — configurado no Hermes |
 | **GitHub** | Orgs `bora-hq` + `antunes-hq` | Source of truth, CI/CD, Issues, Projects |
+
+> **TODO — container do Claude Code:** falta o Dockerfile (nenhum arquivo de build existe no repo ainda), definir imagem base, estratégia de auth (token/API key), mapeamento do volume `.claude/` do host e o mecanismo de remote control. Nada disso está documentado hoje porque ainda não foi construído.
 
 ---
 
@@ -76,7 +78,8 @@ Foco: **produtos reais**, **agentes autônomos** e **infra própria** — nada d
 │   ├── visu/           ← Lab de UI/UX
 │   ├── fessora/        ← Plataforma multi-professor
 │   ├── hermes-desktop/ ← Cliente desktop Hermes
-│   └── custo-por-app/  ← Visibilidade de custos
+│   ├── custo-por-app/  ← Visibilidade de custos
+│   └── fabrica-lockin/ ← Orquestração distribuída (plano + tasks)
 ├── antunes-hq/         ← Projetos pessoais
 │   ├── financas/       ← Dashboard financeiro (local-only)
 │   ├── mavi/           ← Bot casamento (repo antunes-hq/mavi)
