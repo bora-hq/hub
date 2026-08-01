@@ -980,6 +980,16 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_219156ed",
+    "title": "Criar template Rails base na fábrica",
+    "status": "ready",
+    "tenant": null,
+    "assignee": null,
+    "priority": 1,
+    "created_at": 1785617972,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_c1a23dc6",
     "title": "Dona VPS: fix health check (/root/.hermes path no container)",
     "status": "scheduled",
