@@ -990,6 +990,36 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_9b66094f",
+    "title": "Gerar versão Rails do spec app-autonomo",
+    "status": "ready",
+    "tenant": null,
+    "assignee": null,
+    "priority": 2,
+    "created_at": 1785617985,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_abb1fea8",
+    "title": "Executar benchmark Rails vs FastAPI",
+    "status": "ready",
+    "tenant": null,
+    "assignee": null,
+    "priority": 2,
+    "created_at": 1785617985,
+    "board": "ecossistema"
+  },
+  {
+    "id": "t_dfa6d299",
+    "title": "Escrever comparativo e decisão documentada",
+    "status": "ready",
+    "tenant": null,
+    "assignee": null,
+    "priority": 2,
+    "created_at": 1785617986,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_c1a23dc6",
     "title": "Dona VPS: fix health check (/root/.hermes path no container)",
     "status": "scheduled",
