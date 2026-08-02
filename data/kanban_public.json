@@ -210,6 +210,16 @@
     "board": "ecossistema"
   },
   {
+    "id": "t_1d39f937",
+    "title": "Ideia: app de impressão 3D com entrada multimodal (STL/foto/PDF/MD)",
+    "status": "blocked",
+    "tenant": null,
+    "assignee": null,
+    "priority": 2,
+    "created_at": 1785688397,
+    "board": "ecossistema"
+  },
+  {
     "id": "t_0688c207",
     "title": "Flow-viz do comportamento (saúde TDAH)",
     "status": "blocked",
