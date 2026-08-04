@@ -47,7 +47,7 @@
   }
 
   /* ---- header / deck ---- */
-  header.deck { max-width: 840px; margin: 0 auto; padding: 3rem 18px 1.6rem; }
+  header.deck { max-width: 840px; margin: 0 auto; padding: 3rem 18px 1.6rem; position: relative; }
   .callsign { display: flex; align-items: baseline; gap: 10px; }
   .callsign h1 {
     font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
@@ -68,6 +68,60 @@
 
   header.deck .sub {
     color: var(--ink-dim); font-size: .92rem; margin-top: 6px; max-width: 52ch;
+  }
+
+  /* ---- pulsar: assinatura visual do hub ----
+     Farol girante de uma estrela de nêutrons — só "vemos" o pulso quando o
+     feixe aponta pra cá, a cada volta. É a metáfora certa pra um console
+     de operação: a frota inteira já é monitorada em ciclo fixo (bot-fleet-
+     monitor roda a cada 6h). O período do anel/flash (1.337s) é o período
+     de rotação real do PSR B1919+21 — o primeiro pulsar já detectado
+     (Jocelyn Bell Burnell, 1967). Decorativo, por isso aria-hidden. */
+  .pulsar {
+    position: absolute; top: 1.5rem; right: max(18px, env(safe-area-inset-right, 0px));
+    width: 84px; height: 84px; pointer-events: none;
+  }
+  .pulsar-beam {
+    position: absolute; inset: 0; border-radius: 50%;
+    background: conic-gradient(from 0deg,
+      transparent 0deg, var(--amber) 4deg, transparent 11deg,
+      transparent 169deg, var(--amber) 180deg, transparent 191deg,
+      transparent 360deg);
+    opacity: .32;
+    -webkit-mask-image: radial-gradient(circle, #000 0%, #000 32%, transparent 70%);
+            mask-image: radial-gradient(circle, #000 0%, #000 32%, transparent 70%);
+  }
+  .pulsar-ring {
+    position: absolute; top: 50%; left: 50%; width: 10px; height: 10px;
+    margin: -5px 0 0 -5px; border-radius: 50%; border: 1px solid var(--teal);
+  }
+  .pulsar-core {
+    position: absolute; top: 50%; left: 50%; width: 6px; height: 6px;
+    margin: -3px 0 0 -3px; border-radius: 50%; background: var(--amber);
+    box-shadow: 0 0 6px 1px var(--amber-dim);
+  }
+  .pulsar-label {
+    position: absolute; top: 100%; right: 0; margin-top: 6px;
+    font-family: var(--font-display); font-size: .6rem; color: var(--ink-faint);
+    white-space: nowrap; letter-spacing: .02em;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .pulsar-beam { animation: pulsar-spin 5.2s linear infinite; }
+    .pulsar-ring { animation: pulsar-ping 1.337s cubic-bezier(.2,.7,.3,1) infinite; }
+    .pulsar-core { animation: pulsar-flash 1.337s ease-in-out infinite; }
+  }
+  @keyframes pulsar-spin { to { transform: rotate(360deg); } }
+  @keyframes pulsar-ping {
+    0% { transform: scale(.4); opacity: .8; }
+    70%, 100% { transform: scale(3.4); opacity: 0; }
+  }
+  @keyframes pulsar-flash {
+    0%, 88%, 100% { opacity: .55; box-shadow: 0 0 4px 1px var(--amber-dim); }
+    94% { opacity: 1; box-shadow: 0 0 10px 3px var(--amber); }
+  }
+  @media (max-width: 560px) {
+    .pulsar { width: 52px; height: 52px; top: 1.1rem; }
+    .pulsar-label { display: none; }
   }
 
   .ticker {
@@ -188,6 +242,12 @@
 <body>
 
 <header class="deck">
+  <div class="pulsar" aria-hidden="true" title="PSR B1919+21 — primeiro pulsar já detectado (Jocelyn Bell Burnell, 1967). Período real: 1.337s.">
+    <span class="pulsar-beam"></span>
+    <span class="pulsar-ring"></span>
+    <span class="pulsar-core"></span>
+    <span class="pulsar-label">PSR B1919+21 · 1.337s</span>
+  </div>
   <div class="callsign">
     <span class="dot-live" aria-hidden="true"></span>
     <h1>bora-hq</h1>
@@ -199,7 +259,7 @@
 <main>
   <section class="panel">
     <h2><span class="mark">▍</span>Frota — projetos <span class="qualifier">— open source do bora-hq</span></h2>
-    <table class="register">
+    <table class="register" id="tbl-frota">
       <thead><tr><th>Projeto</th><th class="desc">Descrição</th><th>Visib</th><th>Status</th></tr></thead>
       <tbody>
         <tr><td class="name"><a href="https://github.com/bora-hq/hub">hub</a></td><td class="desc">Este repo — porta de entrada e índice vivo do ecossistema</td><td class="vis vis-pub">público</td><td class="status"><span class="stat-dot on"></span>Ativo</td></tr>
@@ -212,7 +272,7 @@
 
   <section class="panel">
     <h2><span class="mark">▍</span>Bots em produção</h2>
-    <table class="register">
+    <table class="register" id="tbl-bots">
       <thead><tr><th>Bot</th><th class="desc">Onde roda</th><th>Função</th></tr></thead>
       <tbody>
         <tr><td class="name">Dona</td><td class="desc">VPS · FastAPI + Docker</td><td class="status"><span class="stat-dot on"></span>Introspectivo</td></tr>
@@ -245,8 +305,10 @@ const el = (tag, cls, txt) => {
   return e;
 };
 const STATUS_ORDER = ["ready", "running", "review", "todo", "scheduled", "blocked", "triage", "done"];
-const N_PROJECTS = 11;
-const N_BOTS = 1;
+// Contado do DOM, não fixo — já ficou desalinhado uma vez (tabela cortada
+// de 15 pra 4 linhas, número no ticker continuou dizendo 11).
+const N_PROJECTS = document.querySelectorAll("#tbl-frota tbody tr").length;
+const N_BOTS = document.querySelectorAll("#tbl-bots tbody tr").length;
 
 function renderGroups(tasks, root) {
   root.innerHTML = "";
