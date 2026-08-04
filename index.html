@@ -110,6 +110,15 @@
   table.register td.name { font-family: var(--font-display); font-weight: 600; white-space: nowrap; }
   table.register td.desc { color: var(--ink-dim); }
   table.register td.status { white-space: nowrap; font-family: var(--font-display); font-size: .78rem; }
+  table.register td.vis { white-space: nowrap; font-family: var(--font-display); font-size: .68rem; text-transform: uppercase; letter-spacing: .04em; }
+  .vis-pub { color: var(--teal); }
+  .vis-priv { color: var(--ink-faint); }
+  .sub-label {
+    font-family: var(--font-display); font-size: .72rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .06em; color: var(--ink-dim);
+    margin-top: 18px; padding-bottom: 4px; border-bottom: 1px dashed var(--edge);
+  }
+  .sub-label:first-child { margin-top: 10px; }
 
   .stat-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 7px; }
   .stat-dot.on { background: var(--teal); }
@@ -189,17 +198,28 @@
 
 <main>
   <section class="panel">
-    <h2><span class="mark">▍</span>Frota — projetos</h2>
+    <h2><span class="mark">▍</span>Frota — projetos <span class="qualifier">— públicos abrem pro time; internos ficam restritos</span></h2>
+    <div class="sub-label">Open source — acesso pra todo mundo</div>
     <table class="register">
-      <thead><tr><th>Projeto</th><th class="desc">Descrição</th><th>Status</th></tr></thead>
+      <thead><tr><th>Projeto</th><th class="desc">Descrição</th><th>Visib</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td class="name"><a href="https://github.com/bora-hq/hub">hub</a></td><td class="desc">Este repo — porta de entrada e índice vivo do ecossistema</td><td class="status"><span class="stat-dot on"></span>Ativo</td></tr>
-        <tr><td class="name"><a href="https://github.com/bora-hq/aptdata">aptdata</a></td><td class="desc">Plataforma de dados para contabilidade (SaaS principal)</td><td class="status"><span class="stat-dot mid"></span>Em estruturação</td></tr>
-        <tr><td class="name"><a href="https://github.com/bora-hq/eco">eco</a></td><td class="desc">Dona — agente introspectivo (Takeout Insights)</td><td class="status"><span class="stat-dot on"></span>Produção</td></tr>
-        <tr><td class="name"><a href="https://github.com/bora-hq/visu">visu</a></td><td class="desc">Lab de UI/UX, componentes e design system</td><td class="status"><span class="stat-dot mid"></span>Exploração</td></tr>
-        <tr><td class="name"><a href="https://github.com/bora-hq/fessora">fessora</a></td><td class="desc">Sistema de aulas de inglês</td><td class="status"><span class="stat-dot mid"></span>Em desenvolvimento</td></tr>
-        <tr><td class="name"><a href="https://github.com/bora-hq/hermes-desktop">hermes-desktop</a></td><td class="desc">Cliente desktop (web + Tauri) pro Hermes Agent</td><td class="status"><span class="stat-dot mid"></span>Em desenvolvimento</td></tr>
-        <tr><td class="name"><a href="https://github.com/bora-hq/lab">lab</a></td><td class="desc">Monorepo de kits e experimentos de IA</td><td class="status"><span class="stat-dot off"></span>Pausado</td></tr>
+        <tr><td class="name"><a href="https://github.com/bora-hq/hub">hub</a></td><td class="desc">Este repo — porta de entrada e índice vivo do ecossistema</td><td class="vis vis-pub">público</td><td class="status"><span class="stat-dot on"></span>Ativo</td></tr>
+        <tr><td class="name"><a href="https://github.com/bora-hq/aptdata">aptdata</a></td><td class="desc">Framework Python extensível para pipelines de dados (SaaS principal)</td><td class="vis vis-pub">público</td><td class="status"><span class="stat-dot off"></span>Pausado</td></tr>
+        <tr><td class="name"><a href="https://github.com/bora-hq/eval-fabrica">eval-fabrica</a></td><td class="desc">Fábrica de avaliação de qualidade — grafo por org (DeepEval + LLM-as-judge)</td><td class="vis vis-pub">público</td><td class="status"><span class="stat-dot on"></span>Ativo</td></tr>
+        <tr><td class="name"><a href="https://github.com/bora-hq/hermes-desktop">hermes-desktop</a></td><td class="desc">Cliente desktop (web + Tauri) pro Hermes Agent</td><td class="vis vis-pub">público</td><td class="status"><span class="stat-dot mid"></span>Em desenvolvimento</td></tr>
+      </tbody>
+    </table>
+    <div class="sub-label">Internos — infra e produtos em gestação</div>
+    <table class="register">
+      <thead><tr><th>Projeto</th><th class="desc">Descrição</th><th>Visib</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td class="name"><a href="https://github.com/bora-hq/eco">flow</a></td><td class="desc">Framework 5W2H — contrato de eventos (repo eco)</td><td class="vis vis-priv">privado</td><td class="status"><span class="stat-dot on"></span>Ativo</td></tr>
+        <tr><td class="name"><a href="https://github.com/bora-hq/fessora">fessora</a></td><td class="desc">Plataforma multi-professor (scaffold + dashboard + landing)</td><td class="vis vis-priv">privado</td><td class="status"><span class="stat-dot on"></span>Ativo</td></tr>
+        <tr><td class="name"><a href="https://github.com/bora-hq/dona">dona</a></td><td class="desc">Agente introspectivo (Takeout Insights) — homologação pendente</td><td class="vis vis-priv">privado</td><td class="status"><span class="stat-dot mid"></span>Revisão</td></tr>
+        <tr><td class="name"><a href="https://github.com/bora-hq/fabrica-lockin">fabrica-lockin</a></td><td class="desc">Orquestração distribuída multiplataforma (Claude Code + dispatch)</td><td class="vis vis-priv">privado</td><td class="status"><span class="stat-dot mid"></span>Prototipação</td></tr>
+        <tr><td class="name"><a href="https://github.com/bora-hq/visu">visu</a></td><td class="desc">Lab de UI/UX, componentes e design system</td><td class="vis vis-priv">privado</td><td class="status"><span class="stat-dot mid"></span>Exploração</td></tr>
+        <tr><td class="name"><a href="https://github.com/bora-hq/lab">lab</a></td><td class="desc">Monorepo de kits e experimentos de IA (AI Labs)</td><td class="vis vis-priv">privado</td><td class="status"><span class="stat-dot off"></span>Pausado</td></tr>
+        <tr><td class="name"><a href="https://github.com/bora-hq/kanban-sync">kanban-sync</a></td><td class="desc">Snapshot git-sincronizado dos boards — alimenta este hub</td><td class="vis vis-priv">privado</td><td class="status"><span class="stat-dot on"></span>Infra</td></tr>
       </tbody>
     </table>
   </section>
@@ -239,7 +259,7 @@ const el = (tag, cls, txt) => {
   return e;
 };
 const STATUS_ORDER = ["ready", "running", "review", "todo", "scheduled", "blocked", "triage", "done"];
-const N_PROJECTS = 7;
+const N_PROJECTS = 11;
 const N_BOTS = 1;
 
 function renderGroups(tasks, root) {

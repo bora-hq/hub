@@ -13,25 +13,28 @@ Foco: **produtos reais**, **agentes autônomos** e **infra própria** — nada d
 
 ## 🗂️ Projetos do Ecossistema
 
-| Projeto | Repo | Descrição | Status |
-|---------|------|-----------|--------|
-| **hub** | `bora-hq/hub` | Este repo — porta de entrada e índice vivo do ecossistema | 🟢 Ativo |
-| **aptdata** | `bora-hq/aptdata` | Plataforma de dados para contabilidade (SaaS principal) | 🔴 Pausado |
-| **flow** | `bora-hq/eco` | Framework 5W2H — contrato de eventos (antes: Dona) | 🟢 Ativo |
-| **dona** | `bora-hq/dona` | Agente introspectivo (Takeout Insights) — **homologação pendente** | 🟡 Revisão |
-| **lab** | `bora-hq/lab` | Monorepo de kits e experimentos de IA (AI Labs) | 🟡 Pausado |
-| **visu** | `bora-hq/visu` | Lab de UI/UX, componentes e design system | 🟡 Exploração |
-| **fessora** | `bora-hq/fessora` | Plataforma multi-professor (scaffold + dashboard + landing) | 🟢 Ativo |
-| **hermes-desktop** | `bora-hq/hermes-desktop` | Cliente desktop (web + Tauri) pro Hermes Agent | 🟡 Em desenvolvimento |
-| **mavi** | `antunes-hq/mavi` | Bot do casamento Mari & Vini (OpenClaw) | 🟢 Produção (VPS) |
-| **dash** | `antunes-hq/dash` | Painel pessoal do Lucas | 🟡 Em desenvolvimento |
-| **feed** | `antunes-hq/feed` | Pipeline de conteúdo redes sociais | 🟡 Em desenvolvimento |
-| **bio** | `antunes-hq/bio` | Landing pessoal pública | 🟡 Em desenvolvimento |
-| **custo-por-app** | `bora-hq/custo-por-app` | Estrutura de visibilidade de custos por app | 🟡 Semente |
-| **fabrica-lockin** | — | Orquestração distribuída multiplataforma | 🟡 Prototipação |
+| Projeto | Repo | Descrição | Visib | Status |
+|---------|------|-----------|-------|--------|
+| **hub** | `bora-hq/hub` | Este repo — porta de entrada e índice vivo do ecossistema | 🔓 público | 🟢 Ativo |
+| **aptdata** | `bora-hq/aptdata` | Framework Python extensível para pipelines de dados (SaaS principal) | 🔓 público | 🔴 Pausado |
+| **eval-fabrica** | `bora-hq/eval-fabrica` | Fábrica de avaliação de qualidade — grafo por org (DeepEval + LLM-as-judge) | 🔓 público | 🟢 Ativo |
+| **hermes-desktop** | `bora-hq/hermes-desktop` | Cliente desktop (web + Tauri) pro Hermes Agent | 🔓 público | 🟡 Em desenvolvimento |
+| **flow** | `bora-hq/eco` | Framework 5W2H — contrato de eventos (antes: Dona) | 🔒 privado | 🟢 Ativo |
+| **dona** | `bora-hq/dona` | Agente introspectivo (Takeout Insights) — **homologação pendente** | 🔒 privado | 🟡 Revisão |
+| **fessora** | `bora-hq/fessora` | Plataforma multi-professor (scaffold + dashboard + landing) | 🔒 privado | 🟢 Ativo |
+| **fabrica-lockin** | `bora-hq/fabrica-lockin` | Orquestração distribuída multiplataforma (Claude Code + dispatch) | 🔒 privado | 🟡 Prototipação |
+| **visu** | `bora-hq/visu` | Lab de UI/UX, componentes e design system | 🔒 privado | 🟡 Exploração |
+| **lab** | `bora-hq/lab` | Monorepo de kits e experimentos de IA (AI Labs) | 🔒 privado | 🔴 Pausado |
+| **kanban-sync** | `bora-hq/kanban-sync` | Snapshot git-sincronizado dos boards — alimenta este hub | 🔒 privado | 🟢 Infra |
+| **opa** | `bora-hq/opa` | Semente de experimento | 🔒 privado | 🟡 Semente |
+| **mavi** | `antunes-hq/mavi` | Bot do casamento Mari & Vini (OpenClaw) | 🔒 privado | 🟢 Produção (VPS) |
+| **dash** | `antunes-hq/dash` | Painel pessoal do Lucas | 🔒 privado | 🟡 Em desenvolvimento |
+| **feed** | `antunes-hq/feed` | Pipeline de conteúdo redes sociais | 🔒 privado | 🟡 Em desenvolvimento |
+| **bio** | `antunes-hq/bio` | Landing pessoal pública | 🔓 público | 🟡 Em desenvolvimento |
 
-> Projetos pessoais (finanças, painel, conteúdo) ficam em `antunes-hq/`.  
-> Projetos do ecossistema SaaS/bots ficam em `bora-hq/`.
+> Projetos pessoais (finanças, painel, conteúdo) ficam em `antunes-hq/`.  \
+> Projetos do ecossistema SaaS/bots ficam em `bora-hq/`.  \
+> 🔓 público = visível/contribuível por qualquer um na org; 🔒 privado = restrito a membros.
 
 ---
 
@@ -71,14 +74,14 @@ Foco: **produtos reais**, **agentes autônomos** e **infra própria** — nada d
 ~/lab/
 ├── bora-hq/            ← Projetos do ecossistema SaaS/bots
 │   ├── hub/            ← ESTE REPO
-│   ├── aptdata/        ← Plataforma de dados (pausado)
+│   ├── aptdata/        ← Framework de pipelines (pausado)
 │   ├── flow/           ← Framework 5W2H (repo bora-hq/eco)
 │   ├── dona/           ← Agente introspectivo (repo bora-hq/dona)
-│   ├── lab/            ← AI Labs (pausado)
-│   ├── visu/           ← Lab de UI/UX
+│   ├── eval-fabrica/   ← Fábrica de avaliação de qualidade
 │   ├── fessora/        ← Plataforma multi-professor
 │   ├── hermes-desktop/ ← Cliente desktop Hermes
-│   ├── custo-por-app/  ← Visibilidade de custos
+│   ├── lab/            ← AI Labs (pausado)
+│   ├── visu/           ← Lab de UI/UX
 │   └── fabrica-lockin/ ← Orquestração distribuída (plano + tasks)
 ├── antunes-hq/         ← Projetos pessoais
 │   ├── financas/       ← Dashboard financeiro (local-only)
