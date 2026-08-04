@@ -6,35 +6,22 @@ Hub central do ecossistema **bora-hq** — ponto de entrada e descoberta dos pro
 
 ## 🎯 O que é o bora-hq?
 
-O **bora-hq** é a organização que abriga o ecossistema de produtos, agentes e ferramentas do Lucas Antunes.  
+O **bora-hq** é a organização que abriga o ecossistema de produtos, agentes e ferramentas do Antunes.  
 Foco: **produtos reais**, **agentes autônomos** e **infra própria** — nada de teatro de assistente.
 
 ---
 
 ## 🗂️ Projetos do Ecossistema
 
-| Projeto | Repo | Descrição | Visib | Status |
-|---------|------|-----------|-------|--------|
-| **hub** | `bora-hq/hub` | Este repo — porta de entrada e índice vivo do ecossistema | 🔓 público | 🟢 Ativo |
-| **aptdata** | `bora-hq/aptdata` | Framework Python extensível para pipelines de dados (SaaS principal) | 🔓 público | 🔴 Pausado |
-| **eval-fabrica** | `bora-hq/eval-fabrica` | Fábrica de avaliação de qualidade — grafo por org (DeepEval + LLM-as-judge) | 🔓 público | 🟢 Ativo |
-| **hermes-desktop** | `bora-hq/hermes-desktop` | Cliente desktop (web + Tauri) pro Hermes Agent | 🔓 público | 🟡 Em desenvolvimento |
-| **flow** | `bora-hq/eco` | Framework 5W2H — contrato de eventos (antes: Dona) | 🔒 privado | 🟢 Ativo |
-| **dona** | `bora-hq/dona` | Agente introspectivo (Takeout Insights) — **homologação pendente** | 🔒 privado | 🟡 Revisão |
-| **fessora** | `bora-hq/fessora` | Plataforma multi-professor (scaffold + dashboard + landing) | 🔒 privado | 🟢 Ativo |
-| **fabrica-lockin** | `bora-hq/fabrica-lockin` | Orquestração distribuída multiplataforma (Claude Code + dispatch) | 🔒 privado | 🟡 Prototipação |
-| **visu** | `bora-hq/visu` | Lab de UI/UX, componentes e design system | 🔒 privado | 🟡 Exploração |
-| **lab** | `bora-hq/lab` | Monorepo de kits e experimentos de IA (AI Labs) | 🔒 privado | 🔴 Pausado |
-| **kanban-sync** | `bora-hq/kanban-sync` | Snapshot git-sincronizado dos boards — alimenta este hub | 🔒 privado | 🟢 Infra |
-| **opa** | `bora-hq/opa` | Semente de experimento | 🔒 privado | 🟡 Semente |
-| **mavi** | `antunes-hq/mavi` | Bot do casamento Mari & Vini (OpenClaw) | 🔒 privado | 🟢 Produção (VPS) |
-| **dash** | `antunes-hq/dash` | Painel pessoal do Lucas | 🔒 privado | 🟡 Em desenvolvimento |
-| **feed** | `antunes-hq/feed` | Pipeline de conteúdo redes sociais | 🔒 privado | 🟡 Em desenvolvimento |
-| **bio** | `antunes-hq/bio` | Landing pessoal pública | 🔓 público | 🟡 Em desenvolvimento |
+> Só os repos públicos do `bora-hq` entram aqui. Repos internos/privados e projetos
+> pessoais (`antunes-hq/`) não ficam listados numa página pública.
 
-> Projetos pessoais (finanças, painel, conteúdo) ficam em `antunes-hq/`.  \
-> Projetos do ecossistema SaaS/bots ficam em `bora-hq/`.  \
-> 🔓 público = visível/contribuível por qualquer um na org; 🔒 privado = restrito a membros.
+| Projeto | Repo | Descrição | Status |
+|---------|------|-----------|--------|
+| **hub** | `bora-hq/hub` | Este repo — porta de entrada e índice vivo do ecossistema | 🟢 Ativo |
+| **aptdata** | `bora-hq/aptdata` | Framework Python extensível para pipelines de dados (SaaS principal) | 🔴 Pausado |
+| **eval-fabrica** | `bora-hq/eval-fabrica` | Fábrica de avaliação de qualidade — grafo por org (DeepEval + LLM-as-judge) | 🟢 Ativo |
+| **hermes-desktop** | `bora-hq/hermes-desktop` | Cliente desktop (web + Tauri) pro Hermes Agent | 🟡 Em desenvolvimento |
 
 ---
 
@@ -46,9 +33,6 @@ Foco: **produtos reais**, **agentes autônomos** e **infra própria** — nada d
 | Bot | Plataforma | Modelo | Onde roda | Função |
 |-----|------------|--------|-----------|--------|
 | **Dona** | Web (FastAPI) | OpenRouter | VPS (Docker) | Agente introspectivo / Takeout Insights — **homologação pendente** |
-| **Mavi** | Telegram | deepseek-chat | VPS (Docker) | Casamento Mari & Vini |
-| **Irma** | Telegram | deepseek-chat | VPS (Docker) | Irmã do Lucas (Faciliter) |
-| **Serginho** | Telegram | deepseek-chat | VPS (Docker) | Chat casual |
 
 ---
 
