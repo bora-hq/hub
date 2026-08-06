@@ -179,52 +179,6 @@
   .stat-dot.mid { background: var(--amber); }
   .stat-dot.off { background: var(--ink-faint); }
 
-  /* ---- kanban / ops board ---- */
-  .kb-summary { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
-  .kb-summary .n {
-    font-family: var(--font-display); background: var(--panel-2); border: 1px solid var(--edge);
-    border-radius: 999px; padding: 4px 11px; font-size: .76rem; color: var(--ink-dim);
-  }
-  .kb-summary .n b { color: var(--amber); font-weight: 600; }
-
-  .kb-group { margin-bottom: 20px; }
-  .kb-group:last-child { margin-bottom: 0; }
-  .kb-group h3 {
-    font-family: var(--font-display); font-size: .8rem; font-weight: 600;
-    color: var(--ink); margin-bottom: 6px; letter-spacing: .01em;
-  }
-  .kb-group h3::before { content: "/ "; color: var(--ink-faint); }
-
-  .kb-task {
-    display: flex; gap: 10px; align-items: baseline; padding: 7px 0 7px 10px;
-    border-left: 2px solid var(--edge); border-bottom: 1px solid var(--edge-soft);
-  }
-  .kb-task:last-child { border-bottom: none; }
-  .kb-task.s-blocked { border-left-color: var(--rose); }
-  .kb-task.s-ready, .kb-task.s-todo, .kb-task.s-scheduled, .kb-task.s-triage { border-left-color: var(--amber); }
-  .kb-task.s-running, .kb-task.s-review { border-left-color: var(--teal); }
-  .kb-task .t { flex: 1; min-width: 0; font-size: .87rem; }
-  .kb-task .badge {
-    flex: none; font-family: var(--font-display); font-size: .68rem; text-transform: uppercase;
-    letter-spacing: .04em; color: var(--ink-faint); background: var(--panel-2);
-    border-radius: 4px; padding: 2px 8px;
-  }
-  .badge.blocked { color: var(--rose); }
-  .badge.ready, .badge.todo, .badge.scheduled, .badge.triage { color: var(--amber); }
-  .badge.running, .badge.review { color: var(--teal); }
-
-  details.kb-done { margin-top: 18px; }
-  details.kb-done summary {
-    cursor: pointer; font-family: var(--font-display); font-size: .78rem; color: var(--ink-dim);
-    list-style: none; padding: 8px 0; border-top: 1px solid var(--edge-soft);
-  }
-  details.kb-done summary::-webkit-details-marker { display: none; }
-  details.kb-done summary::before { content: "▸ "; color: var(--amber); }
-  details.kb-done[open] summary::before { content: "▾ "; }
-  details.kb-done .kb-group { margin-top: 14px; }
-  details.kb-done .kb-task { opacity: .62; }
-  details.kb-done .kb-task.s-done { border-left-color: var(--teal-dim); }
-
   .muted { color: var(--ink-faint); font-size: .85rem; }
 
   footer {
@@ -252,7 +206,7 @@
     <span class="dot-live" aria-hidden="true"></span>
     <h1>bora-hq</h1>
   </div>
-  <p class="sub">Console do ecossistema — produtos, agentes e infra própria do Antunes. Ponto de entrada e descoberta, não teatro de assistente.</p>
+  <p class="sub">Índice do bora-hq — repositório aberto de vibe code. Projetos públicos sem teatro de assistente.</p>
   <div id="ticker" class="ticker">carregando telemetria…</div>
 </header>
 
@@ -270,30 +224,10 @@
     </table>
   </section>
 
-  <section class="panel">
-    <h2><span class="mark">▍</span>Bots em produção</h2>
-    <table class="register" id="tbl-bots">
-      <thead><tr><th>Bot</th><th class="desc">Onde roda</th><th>Função</th></tr></thead>
-      <tbody>
-        <tr><td class="name">Dona</td><td class="desc">VPS · FastAPI + Docker</td><td class="status"><span class="stat-dot on"></span>Introspectivo</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section class="panel">
-    <h2><span class="mark">▍</span>Ops board <span class="qualifier">— kanban ecossistema</span></h2>
-    <p class="panel-hint">Snapshot só-leitura, sincronizado por <a href="https://github.com/bora-hq/kanban-sync">kanban-sync</a>. Mostrando o que está em movimento — concluídas ficam recolhidas abaixo.</p>
-    <div id="kb-summary" class="kb-summary"></div>
-    <div id="kb-root"></div>
-    <details class="kb-done" id="kb-done">
-      <summary id="kb-done-summary">concluídas</summary>
-      <div id="kb-done-root"></div>
-    </details>
-  </section>
-</main>
+  </main>
 
 <footer>
-  <a href="https://github.com/bora-hq">github.com/bora-hq</a> · dado exportado de <a href="https://github.com/bora-hq/kanban-sync">kanban-sync</a>
+  <a href="https://github.com/bora-hq">github.com/bora-hq</a>
 </footer>
 
 <script>
@@ -304,75 +238,10 @@ const el = (tag, cls, txt) => {
   if (txt !== undefined) e.textContent = txt;
   return e;
 };
-const STATUS_ORDER = ["ready", "running", "review", "todo", "scheduled", "blocked", "triage", "done"];
-// Contado do DOM, não fixo — já ficou desalinhado uma vez (tabela cortada
-// de 15 pra 4 linhas, número no ticker continuou dizendo 11).
 const N_PROJECTS = document.querySelectorAll("#tbl-frota tbody tr").length;
-const N_BOTS = document.querySelectorAll("#tbl-bots tbody tr").length;
 
-function renderGroups(tasks, root) {
-  root.innerHTML = "";
-  const byTenant = {};
-  tasks.forEach((t) => {
-    const k = t.tenant || "geral";
-    (byTenant[k] = byTenant[k] || []).push(t);
-  });
-  Object.keys(byTenant).sort().forEach((tenant) => {
-    const group = el("div", "kb-group");
-    group.append(el("h3", "", tenant));
-    byTenant[tenant]
-      .sort((a, b) => STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status) || a.priority - b.priority)
-      .forEach((t) => {
-        const row = el("div", "kb-task s-" + t.status);
-        row.append(el("span", "t", t.title));
-        row.append(el("span", "badge " + t.status, t.status));
-        group.append(row);
-      });
-    root.append(group);
-  });
-}
-
-async function load() {
-  let tasks;
-  try {
-    const r = await fetch("data/kanban_public.json", { cache: "no-store" });
-    tasks = await r.json();
-  } catch {
-    $("#kb-root").innerHTML = "";
-    $("#kb-root").append(el("div", "muted", "não consegui carregar o kanban agora."));
-    $("#ticker").textContent = `${N_PROJECTS} projetos · ${N_BOTS} bots ativos · telemetria do board indisponível`;
-    return;
-  }
-
-  const active = tasks.filter((t) => t.status !== "done");
-  const done = tasks.filter((t) => t.status === "done");
-
-  const counts = {};
-  active.forEach((t) => { counts[t.status] = (counts[t.status] || 0) + 1; });
-  const summary = $("#kb-summary");
-  summary.innerHTML = "";
-  STATUS_ORDER.filter((s) => counts[s]).forEach((s) => {
-    const n = el("span", "n");
-    n.innerHTML = `<b>${counts[s]}</b> ${s}`;
-    summary.append(n);
-  });
-
-  renderGroups(active, $("#kb-root"));
-  if (!active.length) $("#kb-root").append(el("div", "muted", "nada em movimento agora — board limpo."));
-
-  renderGroups(done, $("#kb-done-root"));
-  $("#kb-done-summary").textContent = done.length
-    ? `${done.length} concluídas — expandir`
-    : "nenhuma task concluída ainda";
-  if (!done.length) $("#kb-done").style.display = "none";
-
-  $("#ticker").innerHTML =
-    `<span class="stat"><b>${N_PROJECTS}</b> projetos</span><span class="sep">·</span>` +
-    `<span class="stat"><b>${N_BOTS}</b> bots ativos</span><span class="sep">·</span>` +
-    `<span class="stat"><b>${active.length}</b> tasks em movimento</span><span class="sep">·</span>` +
-    `<span class="stat">${done.length} concluídas</span>`;
-}
-load();
+$("#ticker").innerHTML =
+  `<span class="stat"><b>${N_PROJECTS}</b> projetos públicos</span>`;
 </script>
 </body>
 </html>
