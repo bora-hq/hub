@@ -1,0 +1,261 @@
+/* vendored de antunes-hq/bio@44ff6aa — dark only, sem light mode */
+/* Gerado em 2026-08-07T01:22:29Z */
+/* NÃO EDITAR À MÃO — a fonte única é antunes-hq/bio/src/styles/ */
+
+:root {
+  /* ---- tema: dark abissal é o único tema. O sideral é a cara da landing
+     e a cena 2D só faz sentido sobre ele. Sem toggle, sem light mode. ---- */
+  --paper: #0b0e0c;
+  --paper-raised: #191f1a;
+  --ink: #e9ece6;
+  --ink-soft: #a3ab9f;
+  /* Tons escolhidos por medição, não por olho: são o menor deslocamento de
+     luminosidade (matiz e saturação preservados) que atinge 4.5:1 contra o
+     fundo. */
+  --ink-faint: #757e70;
+  --line: #29332b;
+  --accent: #57b899;
+  --accent-ink: #8fd6bd;
+  --accent-warm: #d97e52;
+
+  --radius: 4px;
+  --measure: 62ch;
+
+  /* ---- escala de espaço, derivada dos valores que já apareciam
+     espalhados em px pelo site (4, 6, 10, 12, 16, 20, 24, 32...). Valores
+     fora desses 8 degraus (28, 40, 48) compõem por soma/multiplicação em
+     vez de inventar um nono degrau — ver .entry e o rodapé do header. ---- */
+  --space-1: 4px;
+  --space-2: 6px;
+  --space-3: 10px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 20px;
+  --space-7: 24px;
+  --space-8: 32px;
+
+  /* ---- escala de tipo, derivada dos font-size já usados no site. base
+     preserva os 17px visuais que o body tinha em px fixo. lg/xl/2xl/3xl
+     cobrem os tamanhos de heading usados hoje nas páginas. ---- */
+  --text-xs: 0.72rem;
+  --text-sm: 0.8rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.3rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.6rem;
+
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+  --font-body: 'Archivo', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+
+  /* Dark é o único tema do produto. Sem color-scheme: light, sem toggle. */
+  color-scheme: dark;
+}* {
+  box-sizing: border-box;
+}
+
+html {
+  /* Android aumenta fonte sozinho em texto largo e estoura linhas flex sem
+     wrap. 100% desliga sem impedir o usuário de aumentar a fonte. */
+  -webkit-text-size-adjust: 100%;
+
+  /* `clip`, NÃO `hidden`: hidden cria contexto de rolagem e clampa
+     scrollWidth, escondendo o bug e cegando a medição ao mesmo tempo. */
+  overflow-x: clip;
+
+  /* Mata o rubber-band vertical. */
+  overscroll-behavior-y: none;
+}
+
+body {
+  margin: 0;
+  max-width: 100%;
+  overflow-x: clip;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0;
+  color: var(--ink);
+}
+
+p {
+  margin: 0 0 1em;
+  max-width: var(--measure);
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--accent);
+}
+
+a.link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+}
+
+/* Fade de cor no corpo (troca de tema) e no sublinhado do link. Ambos são
+   puramente estéticos — quem pediu menos movimento no SO recebe a troca
+   instantânea, que é igualmente funcional. */
+@media (prefers-reduced-motion: no-preference) {
+  body {
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  a.link {
+    transition: text-decoration-color 0.15s ease;
+  }
+}
+
+a.link:hover {
+  text-decoration-color: var(--accent);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: 0.01em;
+}
+
+/* texto apagado — usado em estados vazios (ex.: "primeiros posts a
+   caminho"). Antes não existia em CSS nenhum e o texto caía silenciosamente
+   na cor cheia de --ink; agora usa de fato o token --ink-faint. */
+.ink-faint {
+  color: var(--ink-faint);
+}
+
+.wrap {
+  max-width: 920px;
+  margin-inline: auto;
+  padding-inline: var(--space-7);
+}
+/* ---- notebook page: margin rail + content ---- */
+.page {
+  display: grid;
+  grid-template-columns: 148px minmax(0, 1fr);
+  column-gap: var(--space-8);
+  max-width: 920px;
+  margin-inline: auto;
+  padding-inline: var(--space-7);
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+  padding-block: calc(var(--space-7) + var(--space-1));
+  border-top: 1px solid var(--line);
+}
+
+.entry:first-child {
+  border-top: none;
+}
+
+.rail {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
+  padding-top: var(--space-1);
+}
+
+.rail .ref {
+  color: var(--accent);
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.rail .note {
+  display: block;
+  line-height: 1.5;
+}
+
+.rail .note + .note {
+  margin-top: var(--space-1);
+}
+
+.rail .note.warm {
+  color: var(--accent-warm);
+}
+
+@media (max-width: 640px) {
+  .page,
+  .entry {
+    grid-template-columns: 1fr;
+  }
+
+  .rail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-4);
+    margin-bottom: var(--space-3);
+    padding-top: 0;
+  }
+
+  .rail .note {
+    margin-top: 0 !important;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .entry {
+    animation: rise 0.5s ease both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 20%;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ---- pulse-dot: shared "proof of life" indicator ---- */
+.pulse-dot {
+  position: relative;
+  display: inline-block;
+  width: var(--space-2);
+  height: var(--space-2);
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pulse-dot::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse-fade 2.4s ease-in-out infinite;
+  }
+
+  @keyframes pulse-fade {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 0; transform: scale(2.2); }
+  }
+}
