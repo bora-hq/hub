@@ -2,6 +2,8 @@
 
 Índice do **bora-hq** — ponto de entrada e descoberta dos projetos open source da organização. Sem teatro de assistente.
 
+> O hub só lista repositórios **públicos** do bora-hq.
+
 ---
 
 ## 🎯 O que é o bora-hq?
