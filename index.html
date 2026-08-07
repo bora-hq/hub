@@ -3,245 +3,180 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>bora-hq — console</title>
-<meta name="description" content="Console do ecossistema bora-hq: frota de projetos, bots em produção e board operacional.">
+<title>bora-hq — índice</title>
+<meta name="description" content="Índice de vibe code do bora-hq: projetos públicos, sem teatro de assistente.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/bora.css">
 <style>
-  * { box-sizing: border-box; margin: 0; }
-  :root {
-    --bg: #0a0d12;
-    --panel: #12161d;
-    --panel-2: #171c24;
-    --edge: #232a35;
-    --edge-soft: #1a2029;
-    --ink: #e7e4d9;
-    --ink-dim: #8a92a0;
-    --ink-faint: #4f5865;
-    --amber: #e8a13a;
-    --amber-dim: #6b5730;
-    --teal: #57b8ab;
-    --teal-dim: #315650;
-    --rose: #dd6b6f;
-    --rose-dim: #5c3436;
-    --radius: 6px;
-    --font-display: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
-    --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* layout específico do hub, por cima do design system compartilhado em assets/bora.css */
+  .site-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    padding-block: calc(var(--space-7) + var(--space-1));
+    padding-left: max(var(--space-7), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--space-7), env(safe-area-inset-right, 0px));
   }
 
-  html { color-scheme: dark; }
-
-  body {
-    background: var(--bg); color: var(--ink); font-family: var(--font-body);
-    font-size: 15px; line-height: 1.55; padding-bottom: 56px;
-    background-image: radial-gradient(ellipse 900px 500px at 50% -10%, rgba(232, 161, 58, 0.06), transparent 60%);
+  .wordmark {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--text-lg);
+    text-decoration: none;
+    color: var(--ink);
   }
 
-  main { max-width: 840px; margin: 0 auto; padding: 0 18px; }
-
-  a { color: var(--amber); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  a:focus-visible, button:focus-visible, summary:focus-visible {
-    outline: 2px solid var(--amber); outline-offset: 2px; border-radius: 2px;
+  .site-header .sub {
+    color: var(--ink-faint);
+    font-size: var(--text-sm);
+    max-width: 46ch;
+    margin: 0;
   }
 
-  /* ---- header / deck ---- */
-  header.deck { max-width: 840px; margin: 0 auto; padding: 3rem 18px 1.6rem; position: relative; }
-  .callsign { display: flex; align-items: baseline; gap: 10px; }
-  .callsign h1 {
-    font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
-    letter-spacing: -0.01em; color: var(--ink);
-  }
-  .dot-live {
-    width: 8px; height: 8px; border-radius: 50%; background: var(--teal);
-    box-shadow: 0 0 0 3px var(--teal-dim);
-    flex: none; margin-bottom: 2px;
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .dot-live { animation: pulse 2.4s ease-in-out infinite; }
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: .45; }
+  h2 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-5);
   }
 
-  header.deck .sub {
-    color: var(--ink-dim); font-size: .92rem; margin-top: 6px; max-width: 52ch;
+  .frota-hint {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-6);
   }
 
-  /* ---- pulsar: assinatura visual do hub ----
-     Farol girante de uma estrela de nêutrons — só "vemos" o pulso quando o
-     feixe aponta pra cá, a cada volta. É a metáfora certa pra um console
-     de operação: a frota inteira já é monitorada em ciclo fixo (bot-fleet-
-     monitor roda a cada 6h). O período do anel/flash (1.337s) é o período
-     de rotação real do PSR B1919+21 — o primeiro pulsar já detectado
-     (Jocelyn Bell Burnell, 1967). Decorativo, por isso aria-hidden. */
-  .pulsar {
-    position: absolute; top: 1.5rem; right: max(18px, env(safe-area-inset-right, 0px));
-    width: 84px; height: 84px; pointer-events: none;
-  }
-  .pulsar-beam {
-    position: absolute; inset: 0; border-radius: 50%;
-    background: conic-gradient(from 0deg,
-      transparent 0deg, var(--amber) 4deg, transparent 11deg,
-      transparent 169deg, var(--amber) 180deg, transparent 191deg,
-      transparent 360deg);
-    opacity: .32;
-    -webkit-mask-image: radial-gradient(circle, #000 0%, #000 32%, transparent 70%);
-            mask-image: radial-gradient(circle, #000 0%, #000 32%, transparent 70%);
-  }
-  .pulsar-ring {
-    position: absolute; top: 50%; left: 50%; width: 10px; height: 10px;
-    margin: -5px 0 0 -5px; border-radius: 50%; border: 1px solid var(--teal);
-  }
-  .pulsar-core {
-    position: absolute; top: 50%; left: 50%; width: 6px; height: 6px;
-    margin: -3px 0 0 -3px; border-radius: 50%; background: var(--amber);
-    box-shadow: 0 0 6px 1px var(--amber-dim);
-  }
-  .pulsar-label {
-    position: absolute; top: 100%; right: 0; margin-top: 6px;
-    font-family: var(--font-display); font-size: .6rem; color: var(--ink-faint);
-    white-space: nowrap; letter-spacing: .02em;
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .pulsar-beam { animation: pulsar-spin 5.2s linear infinite; }
-    .pulsar-ring { animation: pulsar-ping 1.337s cubic-bezier(.2,.7,.3,1) infinite; }
-    .pulsar-core { animation: pulsar-flash 1.337s ease-in-out infinite; }
-  }
-  @keyframes pulsar-spin { to { transform: rotate(360deg); } }
-  @keyframes pulsar-ping {
-    0% { transform: scale(.4); opacity: .8; }
-    70%, 100% { transform: scale(3.4); opacity: 0; }
-  }
-  @keyframes pulsar-flash {
-    0%, 88%, 100% { opacity: .55; box-shadow: 0 0 4px 1px var(--amber-dim); }
-    94% { opacity: 1; box-shadow: 0 0 10px 3px var(--amber); }
-  }
-  @media (max-width: 560px) {
-    .pulsar { width: 52px; height: 52px; top: 1.1rem; }
-    .pulsar-label { display: none; }
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5);
   }
 
-  .ticker {
-    font-family: var(--font-display); font-size: .78rem; color: var(--ink-dim);
-    margin-top: 1.1rem; padding-top: .9rem; border-top: 1px solid var(--edge-soft);
-    letter-spacing: .01em; display: flex; flex-wrap: wrap; gap: 4px 0;
+  .bento-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-6);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--paper-raised);
   }
-  .ticker b { color: var(--amber); font-weight: 600; }
-  .ticker .sep { color: var(--ink-faint); margin: 0 8px; }
 
-  /* ---- panels ---- */
-  section.panel {
-    background: var(--panel); border: 1px solid var(--edge); border-radius: var(--radius);
-    padding: 20px; margin-bottom: 16px;
-  }
-  section.panel h2 {
-    font-family: var(--font-display); font-size: .84rem; font-weight: 600;
-    letter-spacing: .04em; text-transform: uppercase; color: var(--ink);
-    display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px;
-  }
-  section.panel h2 .mark { color: var(--amber); font-weight: 700; }
-  section.panel h2 .qualifier {
-    text-transform: none; font-weight: 400; color: var(--ink-faint); letter-spacing: 0;
+  .bento-card h3 {
     font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0;
   }
-  .panel-hint { color: var(--ink-faint); font-size: .82rem; margin: 4px 0 16px; }
 
-  /* ---- register (project / bot tables) ---- */
-  table.register { width: 100%; border-collapse: collapse; margin-top: 14px; }
-  table.register th {
-    text-align: left; font-family: var(--font-display); font-size: .68rem;
-    text-transform: uppercase; letter-spacing: .06em; color: var(--ink-faint);
-    font-weight: 500; padding: 0 10px 8px; border-bottom: 1px solid var(--edge);
+  .bento-card p {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin: 0;
   }
-  table.register td {
-    padding: 10px 10px; border-bottom: 1px solid var(--edge-soft); font-size: .87rem;
-    vertical-align: baseline;
+
+  .bento-status {
+    font-size: var(--text-xs);
+    color: var(--ink-faint);
   }
-  table.register tr:last-child td { border-bottom: none; }
-  table.register td.name { font-family: var(--font-display); font-weight: 600; white-space: nowrap; }
-  table.register td.desc { color: var(--ink-dim); }
-  table.register td.status { white-space: nowrap; font-family: var(--font-display); font-size: .78rem; }
-  table.register td.vis { white-space: nowrap; font-family: var(--font-display); font-size: .68rem; text-transform: uppercase; letter-spacing: .04em; }
-  .vis-pub { color: var(--teal); }
-  .vis-priv { color: var(--ink-faint); }
-  .sub-label {
-    font-family: var(--font-display); font-size: .72rem; font-weight: 600;
-    text-transform: uppercase; letter-spacing: .06em; color: var(--ink-dim);
-    margin-top: 18px; padding-bottom: 4px; border-bottom: 1px dashed var(--edge);
+
+  .bento-actions {
+    margin-top: auto;
+    padding-top: var(--space-2);
   }
-  .sub-label:first-child { margin-top: 10px; }
 
-  .stat-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 7px; }
-  .stat-dot.on { background: var(--teal); }
-  .stat-dot.mid { background: var(--amber); }
-  .stat-dot.off { background: var(--ink-faint); }
-
-  .muted { color: var(--ink-faint); font-size: .85rem; }
-
-  footer {
-    text-align: center; color: var(--ink-faint); font-size: .78rem;
-    padding: 28px 18px 0; font-family: var(--font-display);
+  .site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    padding-block: var(--space-8) calc(var(--space-7) * 2);
+    padding-left: max(var(--space-7), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--space-7), env(safe-area-inset-right, 0px));
+    margin-top: calc(var(--space-6) * 2);
+    border-top: 1px solid var(--line);
+    color: var(--ink-faint);
   }
-  footer a { color: var(--ink-dim); }
 
-  @media (max-width: 560px) {
-    table.register td.desc, table.register th.desc { display: none; }
-    .callsign h1 { font-size: 1.3rem; }
+  @media (max-width: 640px) {
+    .site-header { flex-direction: column; align-items: flex-start; }
+    .bento-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<header class="deck">
-  <div class="pulsar" aria-hidden="true" title="PSR B1919+21 — primeiro pulsar já detectado (Jocelyn Bell Burnell, 1967). Período real: 1.337s.">
-    <span class="pulsar-beam"></span>
-    <span class="pulsar-ring"></span>
-    <span class="pulsar-core"></span>
-    <span class="pulsar-label">PSR B1919+21 · 1.337s</span>
-  </div>
-  <div class="callsign">
-    <span class="dot-live" aria-hidden="true"></span>
-    <h1>bora-hq</h1>
-  </div>
-  <p class="sub">Índice do bora-hq — repositório aberto de vibe code. Projetos públicos sem teatro de assistente.</p>
-  <div id="ticker" class="ticker">carregando telemetria…</div>
+<header class="wrap site-header">
+  <a class="wordmark" href="#frota">
+    <span class="pulse-dot" aria-hidden="true"></span>
+    bora-hq
+  </a>
+  <p class="sub">Índice de vibe code, projetos públicos do bora-hq — sem teatro de assistente.</p>
 </header>
 
 <main>
-  <section class="panel">
-    <h2><span class="mark">▍</span>Frota — projetos <span class="qualifier">— open source do bora-hq</span></h2>
-    <table class="register" id="tbl-frota">
-      <thead><tr><th>Projeto</th><th class="desc">Descrição</th><th>Visib</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td class="name"><a href="https://github.com/bora-hq/hub">hub</a></td><td class="desc">Este repo — porta de entrada e índice vivo do ecossistema</td><td class="vis vis-pub">público</td><td class="status"><span class="stat-dot on"></span>Ativo</td></tr>
-        <tr><td class="name"><a href="https://github.com/bora-hq/aptdata">aptdata</a></td><td class="desc">Framework Python extensível para pipelines de dados (SaaS principal)</td><td class="vis vis-pub">público</td><td class="status"><span class="stat-dot off"></span>Pausado</td></tr>
-        <tr><td class="name"><a href="https://github.com/bora-hq/eval-fabrica">eval-fabrica</a></td><td class="desc">Fábrica de avaliação de qualidade — grafo por org (DeepEval + LLM-as-judge)</td><td class="vis vis-pub">público</td><td class="status"><span class="stat-dot on"></span>Ativo</td></tr>
-        <tr><td class="name"><a href="https://github.com/bora-hq/hermes-desktop">hermes-desktop</a></td><td class="desc">Cliente desktop (web + Tauri) pro Hermes Agent</td><td class="vis vis-pub">público</td><td class="status"><span class="stat-dot mid"></span>Em desenvolvimento</td></tr>
-      </tbody>
-    </table>
-  </section>
+  <div class="page">
+    <section id="frota" class="entry">
+      <div class="rail">
+        <span class="ref mono">§1</span>
+        <span class="note">frota</span>
+        <span class="note">projetos públicos</span>
+      </div>
+      <div>
+        <h2>Frota</h2>
+        <p class="ink-faint mono frota-hint">open source do bora-hq</p>
 
-  </main>
+        <div class="bento-grid">
+          <article class="bento-card">
+            <h3>hub</h3>
+            <p>Este repo — porta de entrada e índice vivo do ecossistema.</p>
+            <span class="bento-status mono">ativo</span>
+            <div class="bento-actions">
+              <a class="link mono" href="https://github.com/bora-hq/hub" target="_blank" rel="noopener">github.com/bora-hq/hub →</a>
+            </div>
+          </article>
 
-<footer>
-  <a href="https://github.com/bora-hq">github.com/bora-hq</a>
+          <article class="bento-card">
+            <h3>aptdata</h3>
+            <p>Framework Python extensível para pipelines de dados.</p>
+            <span class="bento-status mono">pausado</span>
+            <div class="bento-actions">
+              <a class="link mono" href="https://github.com/bora-hq/aptdata" target="_blank" rel="noopener">github.com/bora-hq/aptdata →</a>
+            </div>
+          </article>
+
+          <article class="bento-card">
+            <h3>eval-fabrica</h3>
+            <p>Fábrica de avaliação de qualidade — DeepEval + LLM-as-judge.</p>
+            <span class="bento-status mono">ativo</span>
+            <div class="bento-actions">
+              <a class="link mono" href="https://github.com/bora-hq/eval-fabrica" target="_blank" rel="noopener">github.com/bora-hq/eval-fabrica →</a>
+            </div>
+          </article>
+
+          <article class="bento-card">
+            <h3>hermes-desktop</h3>
+            <p>Cliente desktop (web + Tauri) pro Hermes Agent.</p>
+            <span class="bento-status mono">em desenvolvimento</span>
+            <div class="bento-actions">
+              <a class="link mono" href="https://github.com/bora-hq/hermes-desktop" target="_blank" rel="noopener">github.com/bora-hq/hermes-desktop →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="wrap site-footer">
+  <span class="mono">bora-hq — só repositórios públicos</span>
+  <a class="link mono" href="https://github.com/bora-hq" target="_blank" rel="noopener">github.com/bora-hq →</a>
 </footer>
 
-<script>
-const $ = (s) => document.querySelector(s);
-const el = (tag, cls, txt) => {
-  const e = document.createElement(tag);
-  if (cls) e.className = cls;
-  if (txt !== undefined) e.textContent = txt;
-  return e;
-};
-const N_PROJECTS = document.querySelectorAll("#tbl-frota tbody tr").length;
-
-$("#ticker").innerHTML =
-  `<span class="stat"><b>${N_PROJECTS}</b> projetos públicos</span>`;
-</script>
 </body>
 </html>
